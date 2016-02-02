@@ -20,11 +20,14 @@ int main(int argc, char *argv[])
     QString due("ciao ciao");
     QString conc=uno+due;
    // cout<<conc.toInt()<<endl;*/
-   /* Opera* nuova=new Libro("ciao","coion");
+   /* Opera* nuova=new Libro("1Q84","giapponese");
     db->Add_Opera(nuova);*/
     db->remove_opera(10);
     db->remove_opera(11);
     db->remove_opera(12);
+    db->remove_opera(7);
+    db->remove_opera(8);
+    db->remove_opera(6);
     listaOp view(db);
 
     view.show();

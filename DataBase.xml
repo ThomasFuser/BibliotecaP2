@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>5</max>
-    <opera>
-        <tipo>1</tipo>
-        <id>1</id>
-        <stato>0</stato>
-        <titolo>TV sorrisi e canzoni</titolo>
-        <anno>2015</anno>
-    </opera>
-    <opera>
-        <tipo>1</tipo>
-        <id>2</id>
-        <stato>0</stato>
-        <titolo>Elettronica</titolo>
-        <anno>2012</anno>
-    </opera>
+    <max>9</max>
     <opera>
         <tipo>2</tipo>
-        <id>3</id>
+        <id>9</id>
         <stato>0</stato>
-        <titolo>Il piccolo principe</titolo>
-        <autore>Antoine de Saint-Exupéry</autore>
+        <titolo>1Q84</titolo>
+        <autore>giapponese</autore>
+    </opera>
+    <opera>
+        <tipo>1</tipo>
+        <id>5</id>
+        <stato>0</stato>
+        <titolo>Focus</titolo>
+        <anno>2005</anno>
     </opera>
     <opera>
         <tipo>2</tipo>
@@ -30,10 +23,24 @@
         <autore>Bram Stoker</autore>
     </opera>
     <opera>
-        <tipo>1</tipo>
-        <id>5</id>
+        <tipo>2</tipo>
+        <id>3</id>
         <stato>0</stato>
-        <titolo>Focus</titolo>
-        <anno>2005</anno>
+        <titolo>Il piccolo principe</titolo>
+        <autore>Antoine de Saint-Exupéry</autore>
+    </opera>
+    <opera>
+        <tipo>1</tipo>
+        <id>2</id>
+        <stato>0</stato>
+        <titolo>Elettronica</titolo>
+        <anno>2012</anno>
+    </opera>
+    <opera>
+        <tipo>1</tipo>
+        <id>1</id>
+        <stato>0</stato>
+        <titolo>TV sorrisi e canzoni</titolo>
+        <anno>2015</anno>
     </opera>
 </database>

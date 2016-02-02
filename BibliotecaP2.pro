@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     MODEL/Libro.cpp \
     MODEL/Opera.cpp \
     MODEL/Rivista.cpp \
-    VIEW/listaop.cpp
+    VIEW/listaop.cpp \
+    Controller/C_listaop.cpp
 
 HEADERS  += mainwindow.h \
     MODEL/container.h \
