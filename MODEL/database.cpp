@@ -1,7 +1,7 @@
 #include"database.h"
 
 //QString DataBase::filename="DataBase.xml";
-QString DataBase::filename="../Biblioteca_P2/DataBase.xml";
+QString DataBase::filename="../BibliotecaP2/DataBase.xml";
 
 //iteratori
 

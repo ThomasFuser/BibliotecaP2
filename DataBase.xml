@@ -3,24 +3,10 @@
     <max>5</max>
     <opera>
         <tipo>1</tipo>
-        <id>5</id>
+        <id>1</id>
         <stato>0</stato>
-        <titolo>Focus</titolo>
-        <anno>2005</anno>
-    </opera>
-    <opera>
-        <tipo>2</tipo>
-        <id>4</id>
-        <stato>0</stato>
-        <titolo>Dracula</titolo>
-        <autore>Bram Stoker</autore>
-    </opera>
-    <opera>
-        <tipo>2</tipo>
-        <id>3</id>
-        <stato>0</stato>
-        <titolo>Il piccolo principe</titolo>
-        <autore>Antoine de Saint-Exupéry</autore>
+        <titolo>TV sorrisi e canzoni</titolo>
+        <anno>2015</anno>
     </opera>
     <opera>
         <tipo>1</tipo>
@@ -30,10 +16,24 @@
         <anno>2012</anno>
     </opera>
     <opera>
-        <tipo>1</tipo>
-        <id>1</id>
+        <tipo>2</tipo>
+        <id>3</id>
         <stato>0</stato>
-        <titolo>TV sorrisi e canzoni</titolo>
-        <anno>2015</anno>
+        <titolo>Il piccolo principe</titolo>
+        <autore>Antoine de Saint-Exupéry</autore>
+    </opera>
+    <opera>
+        <tipo>2</tipo>
+        <id>4</id>
+        <stato>0</stato>
+        <titolo>Dracula</titolo>
+        <autore>Bram Stoker</autore>
+    </opera>
+    <opera>
+        <tipo>1</tipo>
+        <id>5</id>
+        <stato>0</stato>
+        <titolo>Focus</titolo>
+        <anno>2005</anno>
     </opera>
 </database>
