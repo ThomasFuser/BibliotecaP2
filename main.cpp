@@ -1,4 +1,4 @@
-/*#include <QApplication>
+#include <QApplication>
 #include <iostream>
 
 #include "MODEL/Opera.h"
