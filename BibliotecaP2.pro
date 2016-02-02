@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     MODEL/Opera.cpp \
     MODEL/Rivista.cpp \
     VIEW/listaop.cpp \
-    Controller/C_listaop.cpp
+    Controller/C_listaop.cpp \
+    CONTROLLER/c_listaop.cpp
 
 HEADERS  += mainwindow.h \
     MODEL/container.h \
@@ -28,7 +29,8 @@ HEADERS  += mainwindow.h \
     MODEL/Libro.h \
     MODEL/Opera.h \
     MODEL/Rivista.h \
-    VIEW/listaop.h
+    VIEW/listaop.h \
+    CONTROLLER/c_listaop.h
 
 FORMS    += mainwindow.ui
 
