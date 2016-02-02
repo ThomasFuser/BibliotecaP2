@@ -1,4 +1,4 @@
- // contenitore base che gestisce la memoria con la copia profonda
+// contenitore base che gestisce la memoria con gli smartp
 
 #ifndef CONTAINER_H
 #define CONTAINER_H
