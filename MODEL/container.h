@@ -52,7 +52,7 @@ public:
         bool operator!=(const iteratore&) const;       //operatore di disuguaglianza
         iteratore& operator++();                       //operatore di incremento prefisso
         iteratore& operator++(int);                    //operatore di incremento postfisso
-        Opera* operator->()const;                           //operatore di accesso a membro
+        Opera* operator*()const;                      //operatore di accesso a membro
         //metodi per test
                 Opera* getIt() const{ return punt->op; }
     };

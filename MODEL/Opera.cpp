@@ -48,11 +48,14 @@ bool Opera::ricerca_campi(const QString& text) const{
     return false;
 }
 
-/*QString Opera::Get_info() const
-{
-    return GetTitolo();
-}
-*/
+
+
+
+
+
+
+
+
 
 
 void Opera::Mod_Opera(const QString& tit, const QString& au, const QString& ann){ titolo=tit; }

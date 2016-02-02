@@ -9,10 +9,10 @@ class C_listaop : public QObject
 public:
     explicit C_listaop(QObject *parent = 0);
 
-signals:
+
 
 public slots:
-
+    //void showInfoSelection();          //creazione della vista interessata
 };
 
 #endif // C_LISTAOP_H

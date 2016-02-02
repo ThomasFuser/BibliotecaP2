@@ -25,9 +25,11 @@ listaOp::listaOp(DataBase* db, QWidget *parent): QWidget(parent), model(db)
     table->setSelectionBehavior(QAbstractItemView::SelectRows);
     buildTable();
     setLayout(layout_table);
+
+  //segnali
+   // connect(table,SIGNAL(cellClicked(int, int)),this,SLOT(setSelectedOpera(int)));  //imposta l'id cercato nell'apposito campo
+    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));
 }
-
-
 
 void listaOp::buildTable(){
     if(!(model->vuoto()))
@@ -38,12 +40,12 @@ void listaOp::buildTable(){
          for(it=model->db_begin(); it!=model->db_end(); it++)
          {
             table->setRowCount(row+1);
-            id=it->Get_Id();
+            id=(*it)->Get_Id();
             i.setNum(id);
 
             QTableWidgetItem *ID = new QTableWidgetItem(i);
-            QTableWidgetItem *valore = new QTableWidgetItem(it->GetTitolo());
-            QTableWidgetItem *tipo = new QTableWidgetItem(it->get_Tipo());          // utilizzo la scappatoia solo per stampaare
+            QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
+            QTableWidgetItem *tipo = new QTableWidgetItem((*it)->get_Tipo());          // utilizzo la scappatoia solo per stampaare
 
              table->setItem(row,0,ID);
              table->setItem(row,1,valore);
@@ -52,8 +54,16 @@ void listaOp::buildTable(){
          }
     }
     else std::cout<<"tabella vuota"<<std::endl;
+}
 
 
+//slot
+
+
+//selezione di una opera all'interno della tabella -> selezione l'id in modo tale da facilitare la ricerca ed invia un segnale che consentirà al controller di aprire la finestra desiderata
+void listaOp::doppio_click(int r){
+    select_opera=table->item(r,0)->text().toInt(); std::cout<<"selezione id: "<<select_opera<<std::endl;
+    emit richiesta_info(select_opera);
 }
 
 

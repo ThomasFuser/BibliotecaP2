@@ -54,6 +54,15 @@ void Libro::Mod_Opera(const QString& titolo, const QString& au, const QString& a
 }
 
 
+info Libro::get_infoTot()const{
+    QString dsp="disponibile", ID;
+    if(!disponibile()) dsp="non disponibile";
+    ID.setNum(Get_Id());
+    return info(GetTitolo(), dsp, ID, GetAutore());
+}
+
+
+
 /*QString Libro::Get_info() const
 {
     Qstring info=Opera::Get_info();

@@ -4,7 +4,7 @@
 #include<iostream>
 #include <QString>
 #include<QXmlStreamWriter>
-
+#include "info.h"
 
 class Opera{
 private:
@@ -33,6 +33,7 @@ public:
     virtual bool disponibile()const =0;                                     //l'opera è disponibile per il prestito?
     virtual void Write_Opera(QXmlStreamWriter& xmlWriter) const =0;         //metodo stampa dell'opera
     virtual void Mod_Opera(const QString&, const QString&, const QString&);
+    virtual info get_infoTot()const =0;
   //  virtual QString Get_info() const{}
    virtual QString get_Tipo()const =0;                                     //ritorna il ripo dell'opera (ATTENZIONE)
 

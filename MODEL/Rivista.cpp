@@ -89,7 +89,13 @@ void Rivista::Mod_Opera(const QString& titolo, const QString& autore, const QStr
 QString Rivista::get_Tipo()const{ return "Rivista"; }
 
 
-
+info Rivista::get_infoTot()const{
+    QString dsp="disponibile", anno="1900", ID;
+    if(!disponibile()) dsp="non disponibile";
+    anno.setNum(GetAnnoUscita());
+    ID.setNum(Get_Id());
+    return info(GetTitolo(), dsp, ID, anno);
+}
 
 
 

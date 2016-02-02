@@ -19,16 +19,19 @@ public:
     explicit listaOp(DataBase*, QWidget *parent = 0);
 
 signals:
-
-public slots:
+   void richiesta_info(const int);
+private slots:
+   void doppio_click(int);        //permette di far comparire la view adatta alla opera che si vuole aprire
 
 private:
   //campi dati
     DataBase* model;
     QTableWidget* table;
     QVBoxLayout* layout_table;
+    int select_opera;
   //metodi privati
     void buildTable();          //metodo che popola la tabella
+
 
 };
 

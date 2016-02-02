@@ -134,4 +134,4 @@ container::iteratore&  container::iteratore::operator++(int){        //operatore
     return prov;
 }
 
-Opera* container::iteratore::operator->()const{ return punt->op; }
+Opera* container::iteratore::operator*()const{ return punt->op; }

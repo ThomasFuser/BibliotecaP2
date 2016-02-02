@@ -2,6 +2,7 @@
 #define LIBRO_H
 
 #include"Opera.h"
+#include"info.h"
 
 
 class Libro: public Opera{
@@ -18,7 +19,7 @@ public:
     virtual void Write_Opera(QXmlStreamWriter& xmlWriter) const;
     virtual bool ricerca_campi(const QString&) const;
     virtual void Mod_Opera(const QString&, const QString&, const QString&);
-
+    virtual info get_infoTot()const;
    // virtual QString Get_info() const;
 
     virtual QString get_Tipo()const;

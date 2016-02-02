@@ -11,7 +11,7 @@
 #include"Opera.h"                   //classe base della gerarchia
 #include"Rivista.h"                 //derivata 1
 #include"Libro.h"                   //derivata 2
-
+#include"info.h"
 
 class DataBase{
 private:
@@ -19,7 +19,7 @@ private:
     static QString filename;
     container db;
 
-    Opera* Trova_Precisa(const int) const;                   //ricerca una precisa opera identificata dal suo puntatore
+    Opera* Trova_Precisa(int) const;                   //ricerca una precisa opera identificata dal suo puntatore
     //POST=( ritorna puntatore ad opera <=> id identifica un'opera presente nel catalogo. op ha ID=id )
 
     void Load();                                        //crea il contenitore in RAM leggendo il file xml
@@ -43,7 +43,8 @@ public:
 
     void Mod_Opera(const int id, const QString&, const QString&, const QString&); //metodo che modifica i campi dati dell'oggetto puntato da Opera*
 
-
+    //ritorna un oggetto "info" contenente tutte le informazioni riguardanti un' opera con un preciso ID. se l'opera non è oresente la funzione ritorna un oggetto info con tutti i suoi campi contenenti "sconosciuto" mentre nel campo corrispondente ad ID: ID non valido
+    info get_infoOpera(int) const;
 
 
 

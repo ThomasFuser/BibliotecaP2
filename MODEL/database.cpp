@@ -121,7 +121,7 @@ container DataBase::cerca_opera(const QString& text) const          //attenzione
 }
 
 
-Opera* DataBase::Trova_Precisa(const int id) const
+Opera* DataBase::Trova_Precisa(int id) const
 {
     if(vuoto())
     {
@@ -167,7 +167,15 @@ void DataBase::Mod_Opera(const int id, const QString& titolo, const QString& aut
 }
 
 
-
+info DataBase::get_infoOpera(int ID) const{
+    Opera* op=Trova_Precisa(ID);
+    if(!op)
+    {
+        std::cout<<"opera non trovata"<<std::endl;
+        return info("Sconosciuto", "Sconosciuto", "ID non valido", "Sconosciuto");
+    }
+    return info(op->get_infoTot());
+}
 
 
 
