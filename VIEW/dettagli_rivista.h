@@ -22,7 +22,7 @@ class Dettagli_Rivista : public QWidget
     Q_OBJECT
 public:
     explicit Dettagli_Rivista(int, DataBase* =0, QWidget *parent = 0);
-
+     void update_dettagli();
 signals:
 
 public slots:
@@ -45,8 +45,9 @@ private:
 
     QPalette* paletteLine;
 
-    void build_dettagli();
     void set_style();
+    void abilita_modifica();
+    void disabilita_modifica();
 };
 
 #endif // DETTAGLI_RIVISTA_H

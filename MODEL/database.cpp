@@ -144,11 +144,12 @@ Opera* DataBase::Trova_Precisa(int id) const
 
     if(!trovata)
     {
+
         std::cout<<"Errore: opera non trovata"<<std::endl;
         return 0;
     }
 
-    std::cout<<(*ris)->GetTitolo().toStdString()<<std::endl;
+    //std::cout<<(*ris)->GetTitolo().toStdString()<<std::endl;
     return db[ris];
 }
 

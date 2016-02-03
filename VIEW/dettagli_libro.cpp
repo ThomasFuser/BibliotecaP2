@@ -1,8 +1,8 @@
-#include "dettagli_rivista.h"
+#include "dettagli_libro.h"
 #include <QPalette>
-Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db, QWidget *parent) : id(Id), model(db), QWidget(parent)
+Dettagli_Libro::Dettagli_Libro(int Id, DataBase* db, QWidget *parent) : id(Id), model(db), QWidget(parent)
 {
-    setWindowTitle("Dettagli della rivista");
+    setWindowTitle("Dettagli del libro");
     //bottone che permettte di chiudere la finestra
        quit=new QPushButton("Chiudi");
        quit->setFont(QFont("Times",18,QFont::Bold));
@@ -11,18 +11,19 @@ Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db, QWidget *parent) : id(I
        t=new QLabel("TITOLO:");
        s=new QLabel("STATO:");
        i=new QLabel("ID:");
-       a=new QLabel("ANNO DI USCITA");
+       a=new QLabel("AURORE");
 
     //set QLineEdit
        titolo=new QLineEdit();
        stato=new QLineEdit();
        identificativo=new QLineEdit();
-       anno=new QLineEdit();
+       autore=new QLineEdit();
 
 
     //inserimento dei dati e settaggio dello stile
        update_dettagli();
        set_style();
+       disabilita_modifica();
 
     //creo i layout manager
        QGridLayout* grid=new QGridLayout;
@@ -30,9 +31,9 @@ Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db, QWidget *parent) : id(I
 
     //setto i laypput manager
        grid->addWidget(t,0,0);
-       grid->addWidget(titolo,0,1);    
+       grid->addWidget(titolo,0,1);
        grid->addWidget(a,1,0);
-       grid->addWidget(anno,1,1);
+       grid->addWidget(autore,1,1);
        grid->addWidget(i,3,0);
        grid->addWidget(identificativo,3,1);
        grid->addWidget(s,2,0);
@@ -41,24 +42,24 @@ Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db, QWidget *parent) : id(I
        Vlayout->addWidget(quit);
        setLayout(Vlayout);
 
-
-       disabilita_modifica();
     //connect
        //bottone quit che chiude la finestra
        connect(quit, SIGNAL(clicked()),qApp,SLOT(quit()));
 }
 
 
-void Dettagli_Rivista::update_dettagli(){
-    info iRivista=model->get_infoOpera(id);
+void Dettagli_Libro::update_dettagli(){
 
-    titolo->setText(iRivista.get_titolo());
-    stato->setText(iRivista.get_stato());
-    identificativo->setText(iRivista.get_ID());
-    anno->setText(iRivista.get_dettaglio());
+    info iLibro=model->get_infoOpera(id);
+
+    titolo->setText(iLibro.get_titolo());
+    stato->setText(iLibro.get_stato());
+    identificativo->setText(iLibro.get_ID());
+    autore->setText(iLibro.get_dettaglio());
 }
 
-void Dettagli_Rivista::set_style(){
+void Dettagli_Libro::set_style(){
+
     paletteLine=new QPalette();
     paletteLine->setColor(QPalette::Text,"#4c4c4c");
     paletteLine->setColor(QPalette::Base,"#f2f1f0");
@@ -66,46 +67,19 @@ void Dettagli_Rivista::set_style(){
     titolo->setPalette(*paletteLine);
     stato->setPalette(*paletteLine);
     identificativo->setPalette(*paletteLine);
-    anno->setPalette(*paletteLine);
+    autore->setPalette(*paletteLine);
 }
 
-void Dettagli_Rivista::abilita_modifica(){
+
+void Dettagli_Libro::abilita_modifica(){
     titolo->setEnabled(true);
     identificativo->setEnabled(true);
-    anno->setEnabled(true);
+    autore->setEnabled(true);
 }
 
-void Dettagli_Rivista::disabilita_modifica(){
+void Dettagli_Libro::disabilita_modifica(){
       titolo->setEnabled(false);
       stato->setEnabled(false);
       identificativo->setEnabled(false);
-      anno->setEnabled(false);
+      autore->setEnabled(false);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

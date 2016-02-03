@@ -19,9 +19,6 @@ private:
     static QString filename;
     container db;
 
-    Opera* Trova_Precisa(int) const;                   //ricerca una precisa opera identificata dal suo puntatore
-    //POST=( ritorna puntatore ad opera <=> id identifica un'opera presente nel catalogo. op ha ID=id )
-
     void Load();                                        //crea il contenitore in RAM leggendo il file xml
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
 
@@ -45,6 +42,9 @@ public:
 
     //ritorna un oggetto "info" contenente tutte le informazioni riguardanti un' opera con un preciso ID. se l'opera non è oresente la funzione ritorna un oggetto info con tutti i suoi campi contenenti "sconosciuto" mentre nel campo corrispondente ad ID: ID non valido
     info get_infoOpera(int) const;
+
+    Opera* Trova_Precisa(int) const;                   //ricerca una precisa opera identificata dal suo puntatore
+    //POST=( ritorna puntatore ad opera <=> id identifica un'opera presente nel catalogo. op ha ID=id )
 
 
 

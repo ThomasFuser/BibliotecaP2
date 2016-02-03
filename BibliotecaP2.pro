@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     CONTROLLER/c_listaop.cpp \
     VIEW/dettagli_rivista.cpp \
     MODEL/info.cpp \
-    VIEW/dettagli_opere.cpp
+    VIEW/dettagli_libro.cpp \
+    CONTROLLER/c_dett_rivista.cpp
 
 HEADERS  += mainwindow.h \
     MODEL/container.h \
@@ -36,7 +37,8 @@ HEADERS  += mainwindow.h \
     CONTROLLER/c_listaop.h \
     VIEW/dettagli_rivista.h \
     MODEL/info.h \
-    VIEW/dettagli_opere.h
+    VIEW/dettagli_libro.h \
+    CONTROLLER/c_dett_rivista.h
 
 FORMS    += mainwindow.ui
 

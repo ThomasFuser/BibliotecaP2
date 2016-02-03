@@ -8,6 +8,9 @@
 #include "MODEL/database.h"
 #include <VIEW/listaop.h>
 #include <VIEW/dettagli_rivista.h>
+#include <VIEW/dettagli_libro.h>
+
+#include <CONTROLLER/c_listaop.h>
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -22,25 +25,30 @@ int main(int argc, char *argv[])
    // cout<<conc.toInt()<<endl;*/
    /* Opera* nuova=new Libro("1Q84","giapponese");
     db->Add_Opera(nuova);*/
-    db->remove_opera(10);
+    /*db->remove_opera(10);
     db->remove_opera(11);
     db->remove_opera(12);
     db->remove_opera(7);
     db->remove_opera(8);
-    db->remove_opera(6);
+    db->remove_opera(6);*/
 
 
-    Dettagli_Rivista prov(3,db);
+    /*Dettagli_Rivista prov(2,db);
+    Dettagli_Libro prov1(3,db);
+
     prov.show();
+    prov1.show();*/
 
 
 
-    listaOp view(db);
+    listaOp* view= new listaOp(db);
+    C_listaop*  controller=new C_listaop(db, view);
 
-    view.show();
+    view->show();
 
 
-    delete db;
+
+
 
 
     return a.exec();

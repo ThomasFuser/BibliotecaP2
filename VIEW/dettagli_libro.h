@@ -1,5 +1,5 @@
-#ifndef DETTAGLI_OPERE_H
-#define DETTAGLI_OPERE_H
+#ifndef DETTAGLI_LIBRO_H
+#define DETTAGLI_LIBRO_H
 
 #include <QWidget>
 #include <QLabel>
@@ -17,15 +17,17 @@
 #include"../MODEL/database.h"
 #include"../MODEL/info.h"
 
-class dettagli_opere : public QWidget
+class Dettagli_Libro : public QWidget
 {
     Q_OBJECT
 public:
-    explicit dettagli_opere(int, DataBase* =0, QWidget *parent = 0);
-
+    explicit Dettagli_Libro(int, DataBase* =0, QWidget *parent = 0);
+    void update_dettagli();
 signals:
 
 public slots:
+
+
 private:
     DataBase* model;
     int id;
@@ -34,12 +36,22 @@ private:
     QLabel* t;     //titolo
     QLabel* s;     //stato
     QLabel* i;     //id
-
+    QLabel* a;     //anno
 
     QLineEdit* titolo;
     QLineEdit* stato;
     QLineEdit* identificativo;
+    QLineEdit* autore;
 
+    QPalette* paletteLine;
+
+    void set_style();
+    void disabilita_modifica();
+    void abilita_modifica();
 };
 
-#endif // DETTAGLI_OPERE_H
+
+
+
+
+#endif // DETTAGLI_LIBRO_H
