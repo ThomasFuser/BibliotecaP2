@@ -1,5 +1,5 @@
-#ifndef DETTAGLI_RIVISTA_H
-#define DETTAGLI_RIVISTA_H
+#ifndef DETTAGLI_OPERE_H
+#define DETTAGLI_OPERE_H
 
 #include <QWidget>
 #include <QLabel>
@@ -17,17 +17,15 @@
 #include"../MODEL/database.h"
 #include"../MODEL/info.h"
 
-class Dettagli_Rivista : public QWidget
+class dettagli_opere : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Dettagli_Rivista(int, DataBase* =0, QWidget *parent = 0);
+    explicit dettagli_opere(int, DataBase* =0, QWidget *parent = 0);
 
 signals:
 
 public slots:
-
-
 private:
     DataBase* model;
     int id;
@@ -36,18 +34,12 @@ private:
     QLabel* t;     //titolo
     QLabel* s;     //stato
     QLabel* i;     //id
-    QLabel* a;     //anno
+
 
     QLineEdit* titolo;
     QLineEdit* stato;
     QLineEdit* identificativo;
-    QLineEdit* anno;
 
-    QPalette* paletteLine;
-
-    void build_dettagli();
-    void set_style();
 };
 
-#endif // DETTAGLI_RIVISTA_H
-
+#endif // DETTAGLI_OPERE_H

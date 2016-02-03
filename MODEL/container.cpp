@@ -20,6 +20,7 @@ container& container::operator=(const container& cont)
                                 //metodi pubblici di utilità per l'utente
 bool container::empty() const{ return first==0; }
 
+
 void container::add_item(Opera* o)
 {
     first=new nodo(o,first);
@@ -102,7 +103,9 @@ container::smartp& container::smartp::operator=(const smartp& sp)
     return *this;
 }
 
-bool container::smartp::operator==(const smartp& sm)const { return (punt==sm.punt); }
+bool container::smartp::operator==(const smartp& sm)const {
+    return (punt==sm.punt);
+}
 
 
 bool container::smartp::operator!=(const smartp& sm)const { return (sm.punt!=punt); }

@@ -7,7 +7,7 @@
 
 #include "MODEL/database.h"
 #include <VIEW/listaop.h>
-
+#include <VIEW/dettagli_rivista.h>
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -28,9 +28,18 @@ int main(int argc, char *argv[])
     db->remove_opera(7);
     db->remove_opera(8);
     db->remove_opera(6);
+
+
+    Dettagli_Rivista prov(3,db);
+    prov.show();
+
+
+
     listaOp view(db);
 
     view.show();
+
+
     delete db;
 
 

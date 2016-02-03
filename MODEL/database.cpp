@@ -58,8 +58,8 @@ void DataBase::Load(){
         {
              if(xmlReader.isEndElement() && xmlReader.name()=="opera")          //leggo </opera> -> posso costruire un'opera
              {
-                 if(tipo==1) op= new Rivista(titolo,anno);             //costruisco una rivista
-                 else op=new Libro(titolo,autore);                     //costruisco un libro
+                 if(tipo==1) op= new Rivista(titolo,anno,stato);             //costruisco una rivista
+                 else op=new Libro(titolo,autore,stato);                     //costruisco un libro
                  //sistemo i valori che il costruttore di Opera mi "sballa"
                  op->Set_Id(id);
                  op->Set_Max(max);
@@ -121,8 +121,12 @@ container DataBase::cerca_opera(const QString& text) const          //attenzione
 }
 
 
+
+
+
 Opera* DataBase::Trova_Precisa(int id) const
 {
+    std::cout<<"ID da cercare: "<<id<<std::endl;
     if(vuoto())
     {
         std::cout<<"Errore: DataBase vuoto"<<std::endl;
@@ -133,7 +137,7 @@ Opera* DataBase::Trova_Precisa(int id) const
     container::iteratore ris;
     while(it!=db.end() && !trovata)
     {
-        if((db[it])->Get_Id()==id) trovata=true;
+        if((*it)->Get_Id()==id) trovata=true;
         ris=it;
         it++;
     }
@@ -143,8 +147,15 @@ Opera* DataBase::Trova_Precisa(int id) const
         std::cout<<"Errore: opera non trovata"<<std::endl;
         return 0;
     }
+
+    std::cout<<(*ris)->GetTitolo().toStdString()<<std::endl;
     return db[ris];
 }
+
+
+
+
+
 
 void DataBase::remove_opera(const int id)
 {  
