@@ -23,6 +23,8 @@ class Dettagli_Libro : public QWidget
 public:
     explicit Dettagli_Libro(int, DataBase* =0, QWidget *parent = 0);
     void update_dettagli();
+    ~Dettagli_Libro();
+
 signals:
 
 public slots:
@@ -32,16 +34,18 @@ private:
     DataBase* model;
     int id;
 
-    QPushButton* quit;
+    QPushButton* presta_ritira;
     QLabel* t;     //titolo
-    QLabel* s;     //stato
+    QLabel* p;     //stato
     QLabel* i;     //id
     QLabel* a;     //anno
+    QLabel* c;     //disponibilità
 
     QLineEdit* titolo;
-    QLineEdit* stato;
+    QLineEdit* prestito;
     QLineEdit* identificativo;
     QLineEdit* autore;
+    QLineEdit* consultabile;
 
     QPalette* paletteLine;
 

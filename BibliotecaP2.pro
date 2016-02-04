@@ -13,7 +13,6 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     MODEL/container.cpp \
     MODEL/database.cpp \
     MODEL/Libro.cpp \
@@ -27,7 +26,7 @@ SOURCES += main.cpp\
     VIEW/dettagli_libro.cpp \
     CONTROLLER/c_dett_rivista.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     MODEL/container.h \
     MODEL/database.h \
     MODEL/Libro.h \

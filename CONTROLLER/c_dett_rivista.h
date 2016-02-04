@@ -1,4 +1,4 @@
-/*#ifndef C_DETT_RIVISTA_H
+#ifndef C_DETT_RIVISTA_H
 #define C_DETT_RIVISTA_H
 
 #include <QObject>
@@ -18,9 +18,9 @@ public slots:
 
 
 private:
-    DataBase* db;
+    DataBase* model;
     Dettagli_Rivista* view;
 
 };
 
-#endif // C_DETT_RIVISTA_H*/
+#endif // C_DETT_RIVISTA_H

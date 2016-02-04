@@ -17,7 +17,7 @@ class listaOp : public QWidget
     Q_OBJECT
 public:
     explicit listaOp(DataBase*, QWidget *parent = 0);
-
+    ~listaOp();
 signals:
    void richiesta_info(const int);
 private slots:

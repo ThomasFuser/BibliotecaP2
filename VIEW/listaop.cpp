@@ -67,7 +67,10 @@ void listaOp::doppio_click(int r){
 }
 
 
-
+listaOp::~listaOp(){
+    delete table;
+    delete layout_table;
+}
 
 
 

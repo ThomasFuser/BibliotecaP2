@@ -154,10 +154,6 @@ Opera* DataBase::Trova_Precisa(int id) const
 }
 
 
-
-
-
-
 void DataBase::remove_opera(const int id)
 {  
     std::cout<<"remove_opera"<<std::endl;
@@ -165,8 +161,6 @@ void DataBase::remove_opera(const int id)
     if(prov!=0) db.remove_item(prov);
     else std::cout<<"nessuna opera da cancellare"<<std::endl;
 }
-
-
 
 
 void DataBase::Mod_Opera(const int id, const QString& titolo, const QString& autore, const QString& anno)
@@ -178,19 +172,25 @@ void DataBase::Mod_Opera(const int id, const QString& titolo, const QString& aut
         op->Mod_Opera(titolo,autore,anno);
 }
 
-
 info DataBase::get_infoOpera(int ID) const{
     Opera* op=Trova_Precisa(ID);
     if(!op)
     {
         std::cout<<"opera non trovata"<<std::endl;
-        return info("Sconosciuto", "Sconosciuto", "ID non valido", "Sconosciuto");
+        return info("Sconosciuto", "Sconosciuto", "ID non valido", "Sconosciuto","Sconosciuto");
     }
     return info(op->get_infoTot());
 }
 
 
-
+void DataBase::Presta_ricevi(int ID){
+    Opera* op=Trova_Precisa(ID);
+    if(op)
+    {
+        if(op->Presente()) op->RiscattaOpera();
+        else op->PrestaOpera();
+    }else std::cout<<"opera non trovata"<<std::endl;
+}
 
 
 

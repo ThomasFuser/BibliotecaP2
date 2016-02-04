@@ -44,7 +44,11 @@ int main(int argc, char *argv[])
     listaOp* view= new listaOp(db);
     C_listaop*  controller=new C_listaop(db, view);
 
+
     view->show();
+
+
+
 
 
 

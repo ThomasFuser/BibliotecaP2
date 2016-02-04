@@ -46,6 +46,7 @@ public:
     Opera* Trova_Precisa(int) const;                   //ricerca una precisa opera identificata dal suo puntatore
     //POST=( ritorna puntatore ad opera <=> id identifica un'opera presente nel catalogo. op ha ID=id )
 
+    void Presta_ricevi(int);
 
 
 

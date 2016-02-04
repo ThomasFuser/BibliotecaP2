@@ -23,7 +23,9 @@ public:
     virtual void Mod_Opera(const QString&, const QString&, const QString&);
     virtual bool Match_Opera(const Opera*) const{ return 0; }
     virtual info get_infoTot()const;
-   // virtual QString Get_info() const;
+
+    virtual void PrestaOpera();                                             // setta a 0 "stato" -> per segnalare il prestito di un'opera
+    virtual void RiscattaOpera();                                           // setta a 1 "stato" -> per segnalare la restituzione di un'opera
 
     virtual QString get_Tipo()const;
 };

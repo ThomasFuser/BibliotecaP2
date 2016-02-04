@@ -22,7 +22,8 @@ class Dettagli_Rivista : public QWidget
     Q_OBJECT
 public:
     explicit Dettagli_Rivista(int, DataBase* =0, QWidget *parent = 0);
-     void update_dettagli();
+    void update_dettagli();
+    ~Dettagli_Rivista();
 signals:
 
 public slots:
@@ -32,16 +33,18 @@ private:
     DataBase* model;
     int id;
 
-    QPushButton* quit;
+    QPushButton* presta_ritira;
     QLabel* t;     //titolo
-    QLabel* s;     //stato
+    QLabel* p;     //prestito
     QLabel* i;     //id
     QLabel* a;     //anno
+    QLabel* c;     //disponibilità
 
     QLineEdit* titolo;
-    QLineEdit* stato;
+    QLineEdit* prestito;
     QLineEdit* identificativo;
     QLineEdit* anno;
+    QLineEdit* consultabile;
 
     QPalette* paletteLine;
 
