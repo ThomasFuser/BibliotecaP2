@@ -34,7 +34,6 @@ private:
     DataBase* model;
     int id;
 
-    QPushButton* presta_ritira;
     QLabel* t;     //titolo
     QLabel* p;     //stato
     QLabel* i;     //id

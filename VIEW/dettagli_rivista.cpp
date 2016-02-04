@@ -3,9 +3,7 @@
 Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db, QWidget *parent) : id(Id), model(db), QWidget(parent)
 {
     setWindowTitle("Dettagli della rivista");
-    //bottone che permettte di chiudere la finestra
-       presta_ritira=new QPushButton("PRESTA / RITIRA");
-       presta_ritira->setFont(QFont("Times",12,QFont::Bold));
+
 
     //set lable
        t=new QLabel("TITOLO:");
@@ -25,9 +23,8 @@ Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db, QWidget *parent) : id(I
        update_dettagli();
        set_style();
 
-    //creo i layout manager
+    //creo il layout manager
        QGridLayout* grid=new QGridLayout;
-       QVBoxLayout* Vlayout=new QVBoxLayout;        //layout manager
 
     //setto i laypput manager
        grid->addWidget(t,0,0);
@@ -40,15 +37,13 @@ Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db, QWidget *parent) : id(I
        grid->addWidget(prestito,3,1);
        grid->addWidget(c,4,0);
        grid->addWidget(consultabile,4,1);
-       Vlayout->addLayout(grid);
-       Vlayout->addWidget(presta_ritira);
-       setLayout(Vlayout);
+
+       setLayout(grid);
 
 
        disabilita_modifica();
-    //connect
-       //bottone quit che chiude la finestra
-       connect(presta_ritira, SIGNAL(clicked()),qApp,SLOT(quit()));
+
+
 }
 
 

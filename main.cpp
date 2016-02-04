@@ -9,8 +9,10 @@
 #include <VIEW/listaop.h>
 #include <VIEW/dettagli_rivista.h>
 #include <VIEW/dettagli_libro.h>
+#include <VIEW/mainwindow.h>
 
 #include <CONTROLLER/c_listaop.h>
+
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -40,20 +42,17 @@ int main(int argc, char *argv[])
     prov1.show();*/
 
 
-
-    listaOp* view= new listaOp(db);
-    C_listaop*  controller=new C_listaop(db, view);
+    mainWindow* finestra=new mainWindow(db);
 
 
-    view->show();
-
+    /*listaOp* view= new listaOp(db);
+    C_listaop*  controller=new C_listaop(db, view);*/
 
 
 
 
 
-
-
+    finestra->show();
 
     return a.exec();
 }

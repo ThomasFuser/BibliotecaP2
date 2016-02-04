@@ -3,32 +3,18 @@
 listaOp::listaOp(DataBase* db, QWidget *parent): QWidget(parent), model(db)
 {
     table=new QTableWidget(this);
-    table->setColumnCount(3);       //per adesso metto una sola colonna
-    table->setRowCount(0);          //inizializzo la tabella senza righe
-
-  //set dimensioni tabella
-    table->setMinimumWidth(400);
-    table->setColumnWidth(0,50);
-    table->setColumnWidth(1,220);
-
-  //intestazione tabella
-    QStringList tabHeader;
-    tabHeader<<"ID"<<"Titolo"<<"Tipologia";
-    table->setHorizontalHeaderLabels(tabHeader);
 
   //inserisco la tabella nel layout del widget
     layout_table=new QVBoxLayout();
     layout_table->addWidget(table);
-  //comportamento nel momento in cui si seleziona un item
-    table->setSelectionMode(QAbstractItemView::SingleSelection);    // modifica disabilitata
-    table->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    table->setSelectionBehavior(QAbstractItemView::SelectRows);
+    set_stile_tabella();
     buildTable();
     setLayout(layout_table);
 
   //segnali
-   // connect(table,SIGNAL(cellClicked(int, int)),this,SLOT(setSelectedOpera(int)));  //imposta l'id cercato nell'apposito campo
-    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));
+    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int))); //doppio click
+    connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(selezione(int)));          //click singolo
+
 }
 
 void listaOp::buildTable(){
@@ -47,9 +33,9 @@ void listaOp::buildTable(){
             QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
             QTableWidgetItem *tipo = new QTableWidgetItem((*it)->get_Tipo());          // utilizzo la scappatoia solo per stampaare
 
-             table->setItem(row,0,ID);
-             table->setItem(row,1,valore);
-             table->setItem(row,2,tipo);
+            table->setItem(row,0,ID);
+            table->setItem(row,1,valore);
+            table->setItem(row,2,tipo);
             row++;
          }
     }
@@ -66,6 +52,11 @@ void listaOp::doppio_click(int r){
     emit richiesta_info(select_opera);
 }
 
+void listaOp::selezione(int r){
+    select_opera=table->item(r,0)->text().toInt(); std::cout<<"selezione id: "<<select_opera<<std::endl;
+    emit click_singolo(select_opera);
+}
+
 
 listaOp::~listaOp(){
     delete table;
@@ -73,6 +64,31 @@ listaOp::~listaOp(){
 }
 
 
+
+void listaOp::set_stile_tabella(){
+
+  //set numero righe e colonne della tabella
+    table->setColumnCount(3);
+    table->setRowCount(0);
+
+  //set dimensioni tabella
+    table->setMinimumWidth(600);
+    table->setColumnWidth(0,50);
+    table->setColumnWidth(1,431);
+    table->setColumnWidth(2,100);
+    table->setMaximumWidth(600);
+    table->setMinimumHeight(300);
+    table->setMaximumHeight(300);
+
+    //intestazione tabella
+    QStringList tabHeader;
+    tabHeader<<"ID"<<"Titolo"<<"Tipologia";
+    table->setHorizontalHeaderLabels(tabHeader);
+    //comportamento nel momento in cui si seleziona un item
+      table->setSelectionMode(QAbstractItemView::SingleSelection);    // modifica disabilitata
+      table->setEditTriggers(QAbstractItemView::NoEditTriggers);
+      table->setSelectionBehavior(QAbstractItemView::SelectRows);
+}
 
 
 

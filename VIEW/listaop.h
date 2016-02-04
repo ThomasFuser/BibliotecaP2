@@ -7,7 +7,7 @@
 #include <QVBoxLayout>
 #include <QAbstractItemView>
 #include <QVBoxLayout>
-                                        //manca campo dati per identificare utente selezionatto
+
 
 #include"../MODEL/database.h"
 #include"../MODEL/container.h"
@@ -20,8 +20,10 @@ public:
     ~listaOp();
 signals:
    void richiesta_info(const int);
+   void selezione(const int);
 private slots:
-   void doppio_click(int);        //permette di far comparire la view adatta alla opera che si vuole aprire
+   void doppio_click(int);        //permette di emettere il segnale richiesta_info l'id selezionato
+   void click_singolo(int);       //permette di far emettere il segnale selezione con l'id selezionato
 
 private:
   //campi dati
@@ -31,7 +33,7 @@ private:
     int select_opera;
   //metodi privati
     void buildTable();          //metodo che popola la tabella
-
+    void set_stile_tabella();
 
 };
 

@@ -13,7 +13,6 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QGridLayout>
-#include <QVBoxLayout>
 #include"../MODEL/database.h"
 #include"../MODEL/info.h"
 
@@ -33,7 +32,6 @@ private:
     DataBase* model;
     int id;
 
-    QPushButton* presta_ritira;
     QLabel* t;     //titolo
     QLabel* p;     //prestito
     QLabel* i;     //id
