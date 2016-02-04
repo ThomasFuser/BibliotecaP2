@@ -12,6 +12,7 @@
 #include <VIEW/mainwindow.h>
 
 #include <CONTROLLER/c_listaop.h>
+#include <CONTROLLER/c_mainwindow.h>
 
 using namespace std;
 
@@ -42,9 +43,10 @@ int main(int argc, char *argv[])
     prov1.show();*/
 
 
+            std::cout<<"PRIMA DELLA COSTRUZIONE DI QUALCHE OGGETTO"<<std::endl;
     mainWindow* finestra=new mainWindow(db);
-
-
+            std::cout<<"DOPO LA COSTRUZIONE DI "<<std::endl;
+    C_mainWindow* controller=new C_mainWindow(db,finestra);
     /*listaOp* view= new listaOp(db);
     C_listaop*  controller=new C_listaop(db, view);*/
 

@@ -8,8 +8,11 @@ listaOp::listaOp(DataBase* db, QWidget *parent): QWidget(parent), model(db)
     layout_table=new QVBoxLayout();
     layout_table->addWidget(table);
     set_stile_tabella();
-    buildTable();
     setLayout(layout_table);
+
+
+
+    updateTable();
 
   //segnali
     connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int))); //doppio click
@@ -17,7 +20,8 @@ listaOp::listaOp(DataBase* db, QWidget *parent): QWidget(parent), model(db)
 
 }
 
-void listaOp::buildTable(){
+void listaOp::updateTable(){
+
     if(!(model->vuoto()))
     {
          int row=0,id;
@@ -29,9 +33,9 @@ void listaOp::buildTable(){
             id=(*it)->Get_Id();
             i.setNum(id);
 
-            QTableWidgetItem *ID = new QTableWidgetItem(i);
-            QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
-            QTableWidgetItem *tipo = new QTableWidgetItem((*it)->get_Tipo());          // utilizzo la scappatoia solo per stampaare
+             QTableWidgetItem *ID = new QTableWidgetItem(i);
+             QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
+             QTableWidgetItem *tipo = new QTableWidgetItem((*it)->get_Tipo());
 
             table->setItem(row,0,ID);
             table->setItem(row,1,valore);
@@ -40,6 +44,7 @@ void listaOp::buildTable(){
          }
     }
     else std::cout<<"tabella vuota"<<std::endl;
+
 }
 
 
@@ -85,12 +90,10 @@ void listaOp::set_stile_tabella(){
     tabHeader<<"ID"<<"Titolo"<<"Tipologia";
     table->setHorizontalHeaderLabels(tabHeader);
     //comportamento nel momento in cui si seleziona un item
-      table->setSelectionMode(QAbstractItemView::SingleSelection);    // modifica disabilitata
-      table->setEditTriggers(QAbstractItemView::NoEditTriggers);
-      table->setSelectionBehavior(QAbstractItemView::SelectRows);
+    table->setSelectionMode(QAbstractItemView::SingleSelection);    // modifica disabilitata
+    table->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    table->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
-
-
 
 
 

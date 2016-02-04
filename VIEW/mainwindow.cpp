@@ -22,7 +22,8 @@ mainWindow::mainWindow(DataBase* db, QWidget *parent) : model(db),  QWidget(pare
 
     creaLayout();
 
-
+    connect(tab,SIGNAL(selezione(int)),this,SLOT(modifica_campo(int)));
+    connect(rimuovi_opera,SIGNAL(clicked()),this,SLOT(rimuovi_segnale()));///////////
 }
 
 
@@ -41,6 +42,7 @@ void mainWindow::creaLayout(){
     Prlayout->addWidget(barra_cerca);
     Prlayout->addLayout(orizzontale);
     setLayout(Prlayout);
+
 }
 
 
@@ -51,6 +53,19 @@ mainWindow::~mainWindow(){
     delete rimuovi_opera;   delete orizzontale;
     delete bottoni;         delete Prlayout;
 }
+
+
+void mainWindow::modifica_campo(int ID){
+    opera_selezionata=ID;
+}
+
+void mainWindow::rimuovi_segnale(){
+   emit rimuovi(opera_selezionata);
+}
+
+void mainWindow::updateMainWindow(){ tab->updateTable(); }
+
+
 
 
 

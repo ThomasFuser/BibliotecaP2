@@ -25,9 +25,16 @@ void container::add_item(Opera* o)
 {
     first=new nodo(o,first);
 }
-
+                IL PROBLEMA STA NELLA CONDIVISIONE CONTROLLATA DELLA MEMORIA...FACCIO UN
+                CASINO DI PUNTATORERI CHE PUNTANO ALLA STESSA COSA E QUESTO MI IMPEDISCE
+                DI CANCELLARE LA CAZZO DI OPERA CHE VOGLIO CANCELLARE.
+                A ME PARE SIA COSI LA STORIA ANCHE SE NON NE SONO SICURO IN QUANTO ME GLI TOGLIE
+                DALL INTERFACCIA GFRAFICA.
+                IL PROBLEMA È CHE ALLA CHIUSURA DEL PROGRAMMA NON MI SALVA LE MODIFICHE
+                FATTE NEL DATABASE.
 void container::remove_item(Opera* o)       //condivisione controllata della memoria
 {    
+    std::cout<<"remove item"<<std::endl;
     smartp p=first, prec, q;
     smartp original=first;
     first=0;

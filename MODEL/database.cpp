@@ -158,7 +158,8 @@ void DataBase::remove_opera(const int id)
 {  
     std::cout<<"remove_opera"<<std::endl;
     Opera* prov=Trova_Precisa(id);
-    if(prov!=0) db.remove_item(prov);
+
+    if(prov!=0) {std::cout<<"PROV: "<<prov->GetTitolo().toStdString()<<std::endl;db.remove_item(prov);}
     else std::cout<<"nessuna opera da cancellare"<<std::endl;
 }
 

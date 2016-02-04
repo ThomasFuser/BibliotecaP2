@@ -17,6 +17,7 @@ class listaOp : public QWidget
     Q_OBJECT
 public:
     explicit listaOp(DataBase*, QWidget *parent = 0);
+    void updateTable();          //metodo che popola la tabella
     ~listaOp();
 signals:
    void richiesta_info(const int);
@@ -30,9 +31,9 @@ private:
     DataBase* model;
     QTableWidget* table;
     QVBoxLayout* layout_table;
+
     int select_opera;
   //metodi privati
-    void buildTable();          //metodo che popola la tabella
     void set_stile_tabella();
 
 };
