@@ -13,7 +13,7 @@ listaOp::listaOp(DataBase* db, QWidget *parent): QWidget(parent), model(db)
 
   //segnali
     connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int))); //doppio click
-    connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(selezione(int)));          //click singolo
+    connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo(int)));          //click singolo
 
 }
 
@@ -52,9 +52,9 @@ void listaOp::doppio_click(int r){
     emit richiesta_info(select_opera);
 }
 
-void listaOp::selezione(int r){
+void listaOp::click_singolo(int r){
     select_opera=table->item(r,0)->text().toInt(); std::cout<<"selezione id: "<<select_opera<<std::endl;
-    emit click_singolo(select_opera);
+    emit selezione(select_opera);
 }
 
 
