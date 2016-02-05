@@ -2,13 +2,15 @@
 
 C_mainWindow::C_mainWindow(DataBase* db,mainWindow* v, QObject *parent) :model(db),view(v),  QObject(parent) {
     connect(view,SIGNAL(rimuovi(int)),this,SLOT(rimuovi_operaDB(int)));
+    connect(view,SIGNAL(aggiorna_prestito(int)),this,SLOT(aggiorna_prestitoDB(int)));
 }
 
 
-
 void C_mainWindow::rimuovi_operaDB(int ID){
-    std::cout<<"remove ID: "<<ID<<std::endl;
-
     model->remove_opera(ID);
     view->updateMainWindow();
+}
+
+void C_mainWindow::aggiorna_prestitoDB(int ID){
+    model->Presta_ricevi(ID);
 }

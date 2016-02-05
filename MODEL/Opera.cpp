@@ -26,16 +26,11 @@ QString Opera::GetTitolo() const{
 
 bool Opera::Presente()const{ return statoP; }
 
-void Opera::PrestaOpera(){
-    statoP=0;
-    return;
-}
+void Opera::PrestaOpera(){ statoP=1; }
 
-void Opera::RiscattaOpera(){
-    statoP=1;
-    return;
-}
 
+
+void Opera::RiscattaOpera(){ statoP=0; }
 
 
 void Opera::Set_Titolo(const QString& text){ titolo=text;  }

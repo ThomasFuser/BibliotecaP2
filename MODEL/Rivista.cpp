@@ -110,7 +110,7 @@ void Rivista::RiscattaOpera(){
      time_t t = time(0);             //oggetto che contenente anno attuale
      tm* timePtr = localtime(&t);
      if(((timePtr->tm_year + 1900)-annoUscita)<=maxAnni) Opera::RiscattaOpera();
-     else std::cout<<"non è possibile prestare l'opera"<<std::endl;
+     else std::cout<<"non è possibile riscattare l'opera"<<std::endl;
 }
 
 

@@ -19,7 +19,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    DataBase* db=new DataBase();        //creo un oggetto DataBase che al momento della sua costruzione riempie
+ //   DataBase* db=new DataBase();        //creo un oggetto DataBase che al momento della sua costruzione riempie
                         //un contenitore in RAM con tutte le opere trovate nell'archivio
 /*cout<<"ciaooooo"<<endl;
     QString uno("ciao");
@@ -41,12 +41,12 @@ int main(int argc, char *argv[])
 
     prov.show();
     prov1.show();*/
-
+DataBase db;
 
             std::cout<<"PRIMA DELLA COSTRUZIONE DI QUALCHE OGGETTO"<<std::endl;
-    mainWindow* finestra=new mainWindow(db);
+    mainWindow* finestra=new mainWindow(&db);
             std::cout<<"DOPO LA COSTRUZIONE DI "<<std::endl;
-    C_mainWindow* controller=new C_mainWindow(db,finestra);
+    C_mainWindow* controller=new C_mainWindow(&db,finestra);
     /*listaOp* view= new listaOp(db);
     C_listaop*  controller=new C_listaop(db, view);*/
 

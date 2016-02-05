@@ -75,6 +75,7 @@ void DataBase::Load(){
 
 
 void DataBase::Close(){
+    std::cout<<"DITRUTTORE DI DATABASE"<<std::endl;
     QFile file(filename);
          file.open(QIODevice::WriteOnly);
 
@@ -159,7 +160,7 @@ void DataBase::remove_opera(const int id)
     std::cout<<"remove_opera"<<std::endl;
     Opera* prov=Trova_Precisa(id);
 
-    if(prov!=0) {std::cout<<"PROV: "<<prov->GetTitolo().toStdString()<<std::endl;db.remove_item(prov);}
+    if(prov!=0) db.remove_item(prov);
     else std::cout<<"nessuna opera da cancellare"<<std::endl;
 }
 
@@ -188,8 +189,8 @@ void DataBase::Presta_ricevi(int ID){
     Opera* op=Trova_Precisa(ID);
     if(op)
     {
-        if(op->Presente()) op->RiscattaOpera();
-        else op->PrestaOpera();
+        if(op->Presente()) {std::cout<<"RISCATTA OPERA"<<std::endl; op->RiscattaOpera();}
+        else {std::cout<<"PRESTA OPERA"<<std::endl;op->PrestaOpera();}
     }else std::cout<<"opera non trovata"<<std::endl;
 }
 

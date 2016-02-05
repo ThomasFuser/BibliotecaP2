@@ -6,7 +6,7 @@
 #include <QLineEdit>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-
+#include <QMessageBox>
 #include "listaop.h"
 #include "../CONTROLLER/c_listaop.h"
 #include "../MODEL/database.h"
@@ -20,12 +20,14 @@ public:
     ~mainWindow();
 signals:
     void rimuovi(int);
+    void aggiorna_prestito(int);
 public slots:
     void rimuovi_segnale();
+    void slot_aggiorna_prestito();
 
 private slots:
-    void modifica_campo(int);     //slot che consente di rimuovere l'opera selezionataù
-
+    void modifica_campo(int);     //slot che consente di rimuovere l'opera selezionata
+    void disabilita();
 private:
     DataBase* model;
 
@@ -45,7 +47,8 @@ private:
     QVBoxLayout* Prlayout, *bottoni;
 
     void creaLayout();
-
+    void abilita_bottoni();
+    void disabilita_bottoni();
 
 
 };

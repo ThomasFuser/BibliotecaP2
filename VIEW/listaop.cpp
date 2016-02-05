@@ -22,20 +22,23 @@ listaOp::listaOp(DataBase* db, QWidget *parent): QWidget(parent), model(db)
 
 void listaOp::updateTable(){
 
+    int row=0;
     if(!(model->vuoto()))
     {
-         int row=0,id;
+         int id;
          QString i;
          container::iteratore it;
+
          for(it=model->db_begin(); it!=model->db_end(); it++)
          {
+             std::cout<<"ENTRATO NEL FOR PER COSTRUIRE LA TABELLA"<<std::endl;
             table->setRowCount(row+1);
             id=(*it)->Get_Id();
             i.setNum(id);
 
-             QTableWidgetItem *ID = new QTableWidgetItem(i);
-             QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
-             QTableWidgetItem *tipo = new QTableWidgetItem((*it)->get_Tipo());
+            QTableWidgetItem *ID = new QTableWidgetItem(i);
+            QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
+            QTableWidgetItem *tipo = new QTableWidgetItem((*it)->get_Tipo());
 
             table->setItem(row,0,ID);
             table->setItem(row,1,valore);
@@ -43,7 +46,10 @@ void listaOp::updateTable(){
             row++;
          }
     }
-    else std::cout<<"tabella vuota"<<std::endl;
+    else{
+            table->setRowCount(row);
+            emit tabella_vuota();
+        }
 
 }
 

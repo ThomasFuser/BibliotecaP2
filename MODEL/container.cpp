@@ -25,13 +25,13 @@ void container::add_item(Opera* o)
 {
     first=new nodo(o,first);
 }
-                IL PROBLEMA STA NELLA CONDIVISIONE CONTROLLATA DELLA MEMORIA...FACCIO UN
+               /* IL PROBLEMA STA NELLA CONDIVISIONE CONTROLLATA DELLA MEMORIA...FACCIO UN
                 CASINO DI PUNTATORERI CHE PUNTANO ALLA STESSA COSA E QUESTO MI IMPEDISCE
                 DI CANCELLARE LA CAZZO DI OPERA CHE VOGLIO CANCELLARE.
                 A ME PARE SIA COSI LA STORIA ANCHE SE NON NE SONO SICURO IN QUANTO ME GLI TOGLIE
                 DALL INTERFACCIA GFRAFICA.
                 IL PROBLEMA È CHE ALLA CHIUSURA DEL PROGRAMMA NON MI SALVA LE MODIFICHE
-                FATTE NEL DATABASE.
+                FATTE NEL DATABASE.*/
 void container::remove_item(Opera* o)       //condivisione controllata della memoria
 {    
     std::cout<<"remove item"<<std::endl;
@@ -40,6 +40,9 @@ void container::remove_item(Opera* o)       //condivisione controllata della mem
     first=0;
     while(p!=0 && !(p->op==o))
     {
+
+
+
         q=new nodo(p->op,p->next);
         if(prec==0) first=q;
         else prec->next=q;
@@ -49,6 +52,8 @@ void container::remove_item(Opera* o)       //condivisione controllata della mem
     if(p==0) first=original;
     else if(prec==0) first=p->next;
          else prec->next=p->next;
+                                        //aggiunto io oggi
+                                        // delete o;
 }
 
 
@@ -89,6 +94,7 @@ container::smartp::~smartp()
 {
     if(punt)
     {
+        std::cout<<"punt nel distruttore di smartP: "<<punt->riferimenti<<std::endl;
         (punt->riferimenti)--;
         if((punt->riferimenti)==0) delete punt;
     }
@@ -99,13 +105,13 @@ container::smartp::smartp(const smartp& sp): punt(sp.punt) { if(punt) punt->rife
 container::smartp& container::smartp::operator=(const smartp& sp)
 {
     if(this == &sp) return *this;					//tento di fare un'assegnazione con lo stesso puntatore
-    nodo* prov=punt;
+    nodo* t=punt;
     punt=sp.punt;
     if(punt) (punt->riferimenti)++;
-    if(prov)
+    if(t)
     {
-        (prov->riferimenti)--;
-        if(!(prov->riferimenti)) delete prov;
+        (t->riferimenti)--;
+        if((t->riferimenti)==0) delete t;
     }
     return *this;
 }

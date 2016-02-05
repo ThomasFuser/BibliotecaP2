@@ -14,7 +14,7 @@ signals:
 
 private slots:
     void rimuovi_operaDB(int);
-
+    void aggiorna_prestitoDB(int);
 private:
     DataBase* model;
     mainWindow* view;
