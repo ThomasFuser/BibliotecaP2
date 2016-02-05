@@ -38,7 +38,7 @@ void mainWindow::slot_aggiorna_prestito(){
     QString identificativo,stato;
     identificativo.setNum(opera_selezionata);
 
-    if(infoOP.get_stato()=="disponibile") stato="prestare";
+    if(infoOP.is_consultabile()=="si") stato="prestare";
     else stato="ricevere";
 
     QMessageBox warning;
@@ -77,7 +77,6 @@ mainWindow::~mainWindow(){
     delete rimuovi_opera;   delete orizzontale;
     delete bottoni;         delete Prlayout;
 }
-
 
 void mainWindow::modifica_campo(int ID){
     opera_selezionata=ID;

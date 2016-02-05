@@ -94,7 +94,6 @@ container::smartp::~smartp()
 {
     if(punt)
     {
-        std::cout<<"punt nel distruttore di smartP: "<<punt->riferimenti<<std::endl;
         (punt->riferimenti)--;
         if((punt->riferimenti)==0) delete punt;
     }

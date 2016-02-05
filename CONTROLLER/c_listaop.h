@@ -4,7 +4,8 @@
 #include <QObject>
 #include "../MODEL/database.h"
 #include "../VIEW/listaop.h"
-#include "../VIEW/dettagli_libro.h"
+
+#include "../CONTROLLER/c_dett_libro.h"          //#include "../VIEW/dettagli_libro.h"
 #include "../VIEW/dettagli_rivista.h"
 
 class C_listaop : public QObject

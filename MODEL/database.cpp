@@ -189,8 +189,8 @@ void DataBase::Presta_ricevi(int ID){
     Opera* op=Trova_Precisa(ID);
     if(op)
     {
-        if(op->Presente()) {std::cout<<"RISCATTA OPERA"<<std::endl; op->RiscattaOpera();}
-        else {std::cout<<"PRESTA OPERA"<<std::endl;op->PrestaOpera();}
+        if(op->Presente()) op->PrestaOpera();
+        else op->RiscattaOpera();
     }else std::cout<<"opera non trovata"<<std::endl;
 }
 

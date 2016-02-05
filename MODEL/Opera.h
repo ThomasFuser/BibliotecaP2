@@ -6,6 +6,8 @@
 #include<QXmlStreamWriter>
 #include "info.h"
 
+enum Exc{imp_prestare};
+
 class Opera{
 private:
     //campi dati
@@ -32,7 +34,7 @@ public:
     virtual void Write_Opera(QXmlStreamWriter& xmlWriter) const =0;         //metodo stampa dell'opera
 
     virtual void PrestaOpera();                                             // setta a 0 "stato" -> per segnalare il prestito di un'opera
-    virtual void RiscattaOpera();                                           // setta a 1 "stato" -> per segnalare la restituzione di un'opera
+    void RiscattaOpera();                                           // setta a 1 "stato" -> per segnalare la restituzione di un'opera
 
     virtual info get_infoTot()const =0;                                     //ritorna tutte le informazioni dell'opera selezionata
     virtual QString get_Tipo()const =0;                                     //ritorna il ripo dell'opera (ATTENZIONE)

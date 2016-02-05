@@ -102,32 +102,5 @@ info Rivista::get_infoTot()const{
 //si può prestare una rivista solo se gli anni dalla sua uscita sono minori di max anni quindi solo se è disponibile
 void Rivista::PrestaOpera(){
     if(disponibile()) Opera::PrestaOpera();
-    else std::cout<<"non è possibile prestare l'opera"<<std::endl;
+    else throw imp_prestare;
 }
-
-//si può riscattare una opera con lo stesso vincolo del prestito. in particolare ho aggiunto un controllo che permette di riscattare opere che altrimenti non è possibile riscattare
-void Rivista::RiscattaOpera(){
-     time_t t = time(0);             //oggetto che contenente anno attuale
-     tm* timePtr = localtime(&t);
-     if(((timePtr->tm_year + 1900)-annoUscita)<=maxAnni) Opera::RiscattaOpera();
-     else std::cout<<"non è possibile riscattare l'opera"<<std::endl;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

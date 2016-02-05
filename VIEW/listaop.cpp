@@ -31,7 +31,6 @@ void listaOp::updateTable(){
 
          for(it=model->db_begin(); it!=model->db_end(); it++)
          {
-             std::cout<<"ENTRATO NEL FOR PER COSTRUIRE LA TABELLA"<<std::endl;
             table->setRowCount(row+1);
             id=(*it)->Get_Id();
             i.setNum(id);

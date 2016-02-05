@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     MODEL/info.cpp \
     VIEW/dettagli_libro.cpp \
     VIEW/mainwindow.cpp \
-    CONTROLLER/c_mainwindow.cpp
+    CONTROLLER/c_mainwindow.cpp \
+    CONTROLLER/c_dett_libro.cpp
 
 HEADERS  += \
     MODEL/container.h \
@@ -39,7 +40,8 @@ HEADERS  += \
     MODEL/info.h \
     VIEW/dettagli_libro.h \
     VIEW/mainwindow.h \
-    CONTROLLER/c_mainwindow.h
+    CONTROLLER/c_mainwindow.h \
+    CONTROLLER/c_dett_libro.h
 
 FORMS    += mainwindow.ui
 
