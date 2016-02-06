@@ -1,13 +1,13 @@
-#include "inserisci_rivista.h"
+#include "inserisci_libro.h"
 
-inserisci_Rivista::inserisci_Rivista(QWidget *parent) : QWidget(parent){
+inserisci_Libro::inserisci_Libro(QWidget *parent) : QWidget(parent){
     submit=new QPushButton("CONFERMA");
 
     t=new QLabel("TITOLO:");
-    a=new QLabel("ANNO DI USCITA");
+    a=new QLabel("AUTORE");
 
     titolo=new QLineEdit();
-    anno=new QLineEdit();
+    autore=new QLineEdit();
 
     grid=new QGridLayout();
     layout=new QVBoxLayout();
@@ -18,10 +18,10 @@ inserisci_Rivista::inserisci_Rivista(QWidget *parent) : QWidget(parent){
 }
 
 
-void inserisci_Rivista::build_Layout(){
+void inserisci_Libro::build_Layout(){
 
     grid->addWidget(t,0,0); grid->addWidget(titolo,0,1);
-    grid->addWidget(a,1,0); grid->addWidget(anno,1,1);
+    grid->addWidget(a,1,0); grid->addWidget(autore,1,1);
 
     layout->addLayout(grid);
     layout->addWidget(submit);
@@ -30,8 +30,8 @@ void inserisci_Rivista::build_Layout(){
 }
 
 
-void inserisci_Rivista::slot_submit(){
-    if(titolo->text().isEmpty() || titolo->text().isNull() ||  anno->text().isEmpty() || anno->text().isNull())
+void inserisci_Libro::slot_submit(){
+    if(titolo->text().isEmpty() || titolo->text().isNull() ||  autore->text().isEmpty() || autore->text().isNull())
     {
             QMessageBox warning;
             warning.setIcon(QMessageBox::Critical);
@@ -54,15 +54,13 @@ void inserisci_Rivista::slot_submit(){
                 /*info op(titolo->text(),"","",anno->text());
                 emit submitR(op);
                 pulisci_Campi();*/
-                emit submitR(titolo->text(),anno->text());
+                QString uno=titolo->text();
+                QString due=autore->text();
+                emit submitL(uno,due);
 
             }
 }}
-void inserisci_Rivista::pulisci_Campi(){
+void inserisci_Libro::pulisci_Campi(){
     titolo->clear();
-    anno->clear();
+    autore->clear();
 }
-
-
-
-

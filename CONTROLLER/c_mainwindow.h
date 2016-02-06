@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include "../VIEW/mainwindow.h"
+#include "../CONTROLLER/c_add_rivista.h"
+#include "../CONTROLLER/c_add_libro.h"
 
 class C_mainWindow : public QObject
 {
@@ -12,9 +14,12 @@ public:
 
 signals:
     void aggiorna_dettagli();
+
 private slots:
     void rimuovi_operaDB(int);
     void aggiorna_prestitoDB(int);
+    void inserisci_rivistaDB();
+    void inserisci_libroDB();
 private:
     DataBase* model;
     mainWindow* view;

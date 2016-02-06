@@ -9,8 +9,8 @@ container::iteratore DataBase::db_begin(){ return db.begin(); }
 container::iteratore DataBase::db_end(){ return db.end(); }
 
 
-DataBase::DataBase(){ Load(); std::cout<<"COSTRUTTORE DEL DATABASE"<<std::endl;}
-DataBase::~DataBase(){ std::cout<<"DISTRUTTORE DEL DATABASE"<<std::endl;Close(); }
+DataBase::DataBase(){ Load();}
+DataBase::~DataBase(){ Close(); }
 
 void DataBase::Load(){
     //variabili provvisorie
@@ -75,7 +75,6 @@ void DataBase::Load(){
 
 
 void DataBase::Close(){
-    std::cout<<"DITRUTTORE DI DATABASE"<<std::endl;
     QFile file(filename);
          file.open(QIODevice::WriteOnly);
 

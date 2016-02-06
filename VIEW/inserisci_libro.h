@@ -1,5 +1,5 @@
-#ifndef INSERISCI_RIVISTA_H
-#define INSERISCI_RIVISTA_H
+#ifndef INSERISCI_LIBRO_H
+#define INSERISCI_LIBRO_H
 
 #include <QWidget>
  #include <QPushButton>
@@ -11,15 +11,16 @@
 
 #include "../MODEL/database.h"
 
-class inserisci_Rivista : public QWidget
+class inserisci_Libro : public QWidget
 {
     Q_OBJECT
 public:
-    explicit inserisci_Rivista(QWidget *parent = 0);
+    explicit inserisci_Libro(QWidget *parent = 0);
 
 signals:
-    void submitR(QString, QString);
-public slots:
+    void submitL(QString, QString);
+
+private slots:
     void slot_submit();
 private:
 
@@ -29,7 +30,7 @@ private:
     QLabel* a;     //anno
 
     QLineEdit* titolo;
-    QLineEdit* anno;
+    QLineEdit* autore;
 
     QVBoxLayout* layout;
     QGridLayout* grid;
@@ -41,4 +42,4 @@ private:
 
 };
 
-#endif // INSERISCI_RIVISTA_H
+#endif // INSERISCI_LIBRO_H

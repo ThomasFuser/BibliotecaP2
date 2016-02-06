@@ -3,6 +3,8 @@
 C_mainWindow::C_mainWindow(DataBase* db,mainWindow* v, QObject *parent) :model(db),view(v),  QObject(parent) {
     connect(view,SIGNAL(rimuovi(int)),this,SLOT(rimuovi_operaDB(int)));
     connect(view,SIGNAL(aggiorna_prestito(int)),this,SLOT(aggiorna_prestitoDB(int)));
+    connect(view,SIGNAL(show_inserisci_rivista()),this,SLOT(inserisci_rivistaDB()));
+    connect(view,SIGNAL(show_inserisci_libro()),this,SLOT(inserisci_libroDB()));
 }
 
 
@@ -24,6 +26,19 @@ void C_mainWindow::aggiorna_prestitoDB(int ID){
             warning.setDefaultButton(QMessageBox::Cancel);
             int ret = warning.exec();
     }
-    emit aggiorna_dettagli();
+    //emit aggiorna_dettagli();
 
 }
+
+
+void C_mainWindow::inserisci_rivistaDB(){
+    inserisci_Rivista* inserisci=new inserisci_Rivista();
+    c_add_rivista controller(model,inserisci);
+    inserisci->show();
+}
+void C_mainWindow::inserisci_libroDB(){
+    inserisci_Libro* inserisci=new inserisci_Libro();
+    c_add_libro controller(model,inserisci);
+    inserisci->show();
+}
+

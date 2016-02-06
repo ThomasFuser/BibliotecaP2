@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     CONTROLLER/c_mainwindow.cpp \
     CONTROLLER/c_dett_libro.cpp \
     VIEW/inserisci_rivista.cpp \
-    CONTROLLER/c_add_rivista.cpp
+    CONTROLLER/c_add_rivista.cpp \
+    VIEW/inserisci_libro.cpp \
+    CONTROLLER/c_add_libro.cpp
 
 HEADERS  += \
     MODEL/container.h \
@@ -45,7 +47,9 @@ HEADERS  += \
     CONTROLLER/c_mainwindow.h \
     CONTROLLER/c_dett_libro.h \
     VIEW/inserisci_rivista.h \
-    CONTROLLER/c_add_rivista.h
+    CONTROLLER/c_add_rivista.h \
+    VIEW/inserisci_libro.h \
+    CONTROLLER/c_add_libro.h
 
 FORMS    += mainwindow.ui
 
