@@ -10,6 +10,8 @@
 #include "listaop.h"
 #include "../CONTROLLER/c_listaop.h"
 #include "../MODEL/database.h"
+#include "../CONTROLLER/c_add_rivista.h"
+#include "../VIEW/inserisci_rivista.h"
 
 class mainWindow : public QWidget
 {
@@ -24,6 +26,7 @@ signals:
 public slots:
     void rimuovi_segnale();
     void slot_aggiorna_prestito();
+    void slot_inserisci_rivista();
 
 private slots:
     void modifica_campo(int);     //slot che consente di rimuovere l'opera selezionata

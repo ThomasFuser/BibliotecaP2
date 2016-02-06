@@ -14,7 +14,7 @@ private:
     QString dettaglio;
     QString consultabile;
 public:
-    info(QString, QString, QString, QString, QString); //costruttore 4 parametri. non  metto volutamente altri costruttori
+    info(QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto", QString ="Sconosciuto"); //costruttore 0~4 parametri.
     QString get_titolo() const;
     QString get_stato() const;
     QString get_ID() const;

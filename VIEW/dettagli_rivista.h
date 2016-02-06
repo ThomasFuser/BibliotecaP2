@@ -53,3 +53,5 @@ private:
 
 #endif // DETTAGLI_RIVISTA_H
 
+
+

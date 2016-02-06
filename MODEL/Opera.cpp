@@ -7,6 +7,7 @@ int Opera::maxId=0;
 //costruttore
 Opera::Opera(QString tit,bool s): titolo(tit), statoP(s)
 {
+  //setta l'ID univoco per la nuova opera creata
     maxId++;
     ID=maxId;
 }

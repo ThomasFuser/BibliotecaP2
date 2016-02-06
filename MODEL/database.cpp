@@ -111,6 +111,19 @@ void DataBase::Add_Opera(Opera* op)
 }
 //POST=(inserisce nel contenitore l'opera <=> è una opera valida quindi op!=0)
 
+void DataBase::add_Rivista(info op){
+    int anno=op.get_dettaglio().toInt();
+    Rivista* r=new Rivista(op.get_titolo(),anno);
+    db.add_item(r);
+}
+
+void DataBase::add_Libro(info op){
+    Libro* l=new Libro(op.get_titolo(),op.get_dettaglio());
+    db.add_item(l);
+}
+
+
+
 //cerca un'opera che abbia tra i campi dati la stringa text e ritorna un containitore di puntatori
 container DataBase::cerca_opera(const QString& text) const          //attenzione con il ritorno per valore dell'opera
 {

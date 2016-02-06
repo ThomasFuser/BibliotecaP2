@@ -26,7 +26,17 @@ mainWindow::mainWindow(DataBase* db, QWidget *parent) : model(db),  QWidget(pare
     connect(tab,SIGNAL(tabella_vuota()),this,SLOT(disabilita()));
     connect(rimuovi_opera,SIGNAL(clicked()),this,SLOT(rimuovi_segnale()));
     connect(presta_rientra,SIGNAL(clicked()),this,SLOT(slot_aggiorna_prestito()));
+    connect(aggiungi_rivista,SIGNAL(clicked()),this,SLOT(slot_inserisci_rivista()));
 }
+
+
+void mainWindow::slot_inserisci_rivista(){
+    inserisci_Rivista* inserisci=new inserisci_Rivista();
+    c_add_rivista controller(model,inserisci);
+    inserisci->show();
+}
+
+
 
 void mainWindow::disabilita(){
     disabilita_bottoni();

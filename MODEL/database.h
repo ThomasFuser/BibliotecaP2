@@ -37,6 +37,8 @@ public:
     //POST=(il contenitore ritornato è vuoto <=> la stringa non è stata trovata in nessuna opera mentre; altrimenti il contenitore contiene tutte le opere con un campo dati che matcha con la stringa passata)
 
     void Add_Opera(Opera*);                             //metodo che aggiunge un'opera -> ci possono essere due opere uguali
+    void add_Rivista(info);
+    void add_Libro(info);
 
     void Mod_Opera(const int id, const QString&, const QString&, const QString&); //metodo che modifica i campi dati dell'oggetto puntato da Opera*
 
