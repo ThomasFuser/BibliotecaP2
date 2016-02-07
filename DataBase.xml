@@ -31,9 +31,32 @@
     </opera>
     <opera>
         <tipo>2</tipo>
+        <id>5</id>
+        <stato>1</stato>
+        <titolo>Il gioiello delle sette stelle</titolo>
+        <autore>Bram Stoker</autore>
+    </opera>
+    <opera>
+        <tipo>1</tipo>
+        <id>6</id>
+        <stato>1</stato>
+        <titolo>Focus</titolo>
+        <anno>1995</anno>
+    </opera>
+    <opera>
+        <tipo>2</tipo>
+        <id>7</id>
+        <stato>1</stato>
+        <titolo>Dance Dance Dance</titolo>
+        <autore>Haruki Murakami</autore>
+    </opera>
+    <opera>
+        <tipo>2</tipo>
         <id>9</id>
         <stato>1</stato>
         <titolo>1Q84</titolo>
         <autore>Haruki Murakami</autore>
     </opera>
+
+
 </database>
