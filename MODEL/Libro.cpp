@@ -10,7 +10,7 @@ Libro::Libro(QString tit, QString al, bool stat): Opera(tit,stat), autore(al){}
 
 QString Libro::GetAutore() const{ return autore; }
 
-void Libro::Set_Autore(const QString& text){ autore=text; }
+
 
 
 //concretizzazioni dei metodi virtuali puri della classe base Opera
@@ -47,11 +47,6 @@ bool Libro::ricerca_campi(const QString& text) const{
     return true;
 }
 
-void Libro::Mod_Opera(const QString& titolo, const QString& au, const QString& ann)
-{
-    if(!(titolo.isEmpty())) Opera::Mod_Opera(titolo,au,ann);
-    if(!(au.isEmpty())) autore=au;
-}
 
 info Libro::get_infoTot()const{
     QString dsp="disponibile", ID, pr="si";

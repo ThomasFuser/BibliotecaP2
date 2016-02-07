@@ -2,6 +2,7 @@
 #define C_ADD_LIBRO_H
 
 #include <QObject>
+#include<QApplication>
 #include "../VIEW/inserisci_libro.h"
 #include "../MODEL/database.h"
 
@@ -15,7 +16,7 @@ signals:
 
 public slots:
     void add(QString,QString);
-    void stronzo();
+
 
 private:
     DataBase* model;

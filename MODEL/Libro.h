@@ -11,14 +11,11 @@ private:
 public:
     Libro(QString, QString, bool=0);
     QString GetAutore() const;
-    void Set_Autore(const QString&);
 
-    //definizione metodi virtuali puri
     virtual ~Libro(){};
     virtual bool disponibile() const;
     virtual void Write_Opera(QXmlStreamWriter& xmlWriter) const;
     virtual bool ricerca_campi(const QString&) const;
-    virtual void Mod_Opera(const QString&, const QString&, const QString&);
     virtual info get_infoTot()const;
 
     virtual QString get_Tipo()const;

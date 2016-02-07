@@ -18,15 +18,7 @@ int Rivista::GetMaxAnni() const{ return maxAnni; }
 
 int Rivista::GetAnnoUscita() const{ return annoUscita; }
 
-void Rivista::SetMaxAnni(const int newAnno){
-    maxAnni=newAnno;
-    return;
-}
-void Rivista::Set_Anno_Uscita(int a)
-{
-    if(a<1000){ std::cout<<"Errore: anno inserito non valido"<<std::endl; }
-    else annoUscita=a;
-}
+
 
 //concretizzazione dei metodi virtuali della classe base
 
@@ -77,15 +69,7 @@ bool Rivista::ricerca_campi(const QString& text) const
 }
 
 
-void Rivista::Mod_Opera(const QString& titolo, const QString& autore, const QString& anno)
-{
-    if(!(titolo.isEmpty())) Opera::Mod_Opera(titolo,autore,anno);
-    if(!(anno.isEmpty()))
-    {
-        int a=anno.toInt();
-        if(a>=1000) annoUscita=a;
-    }
-}
+
 QString Rivista::get_Tipo()const{ return "Rivista"; }
 
 

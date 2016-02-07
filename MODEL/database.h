@@ -39,9 +39,6 @@ public:
     void Add_Opera(Opera*);                             //metodo che aggiunge un'opera -> ci possono essere due opere uguali
     void add_Rivista(info);
     void add_Libro(info);
-
-
-
     //ritorna un oggetto "info" contenente tutte le informazioni riguardanti un' opera con un preciso ID. se l'opera non è oresente la funzione ritorna un oggetto info con tutti i suoi campi contenenti "sconosciuto" mentre nel campo corrispondente ad ID: ID non valido
     info get_infoOpera(int) const;
 

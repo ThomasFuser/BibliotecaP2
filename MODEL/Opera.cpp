@@ -29,12 +29,7 @@ bool Opera::Presente()const{ return statoP; }
 
 void Opera::PrestaOpera(){ statoP=0; }
 
-
-
 void Opera::RiscattaOpera(){ statoP=1; }
-
-
-void Opera::Set_Titolo(const QString& text){ titolo=text;  }
 
 bool Opera::ricerca_campi(const QString& text) const{
     int ID=text.toInt();
@@ -42,36 +37,3 @@ bool Opera::ricerca_campi(const QString& text) const{
     if(ID==Get_Id()) return true;
     return false;
 }
-
-
-
-
-
-
-
-
-
-
-
-void Opera::Mod_Opera(const QString& tit, const QString& au, const QString& ann){ titolo=tit; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

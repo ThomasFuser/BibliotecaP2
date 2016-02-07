@@ -63,7 +63,6 @@ void DataBase::Load(){
                  //sistemo i valori che il costruttore di Opera mi "sballa"
                  op->Set_Id(id);
                  op->Set_Max(max);
-
                  db.add_item(op);                                      //aggiungo l'opera nel contenitore
                  xmlReader.readNext();
              }else xmlReader.readNext();
@@ -124,7 +123,7 @@ void DataBase::add_Libro(info op){
 
 
 //cerca un'opera che abbia tra i campi dati la stringa text e ritorna un containitore di puntatori
-container DataBase::cerca_opera(const QString& text) const          //attenzione con il ritorno per valore dell'opera
+container DataBase::cerca_opera(const QString& text) const
 {
     container cont;
     for(container::iteratore it=db.begin(); it!=db.end(); it++)
@@ -155,7 +154,6 @@ Opera* DataBase::Trova_Precisa(int id) const
     if(!trovata) return 0;
     return db[ris];
 }
-
 
 void DataBase::remove_opera(const int id)
 {  

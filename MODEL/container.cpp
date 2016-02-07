@@ -21,28 +21,16 @@ container& container::operator=(const container& cont)
 bool container::empty() const{ return first==0; }
 
 
-void container::add_item(Opera* o)
-{
-    first=new nodo(o,first);
-}
-               /* IL PROBLEMA STA NELLA CONDIVISIONE CONTROLLATA DELLA MEMORIA...FACCIO UN
-                CASINO DI PUNTATORERI CHE PUNTANO ALLA STESSA COSA E QUESTO MI IMPEDISCE
-                DI CANCELLARE LA CAZZO DI OPERA CHE VOGLIO CANCELLARE.
-                A ME PARE SIA COSI LA STORIA ANCHE SE NON NE SONO SICURO IN QUANTO ME GLI TOGLIE
-                DALL INTERFACCIA GFRAFICA.
-                IL PROBLEMA È CHE ALLA CHIUSURA DEL PROGRAMMA NON MI SALVA LE MODIFICHE
-                FATTE NEL DATABASE.*/
+void container::add_item(Opera* o) { first=new nodo(o,first); }
+
+
 void container::remove_item(Opera* o)       //condivisione controllata della memoria
 {    
-    std::cout<<"remove item"<<std::endl;
     smartp p=first, prec, q;
     smartp original=first;
     first=0;
     while(p!=0 && !(p->op==o))
     {
-
-
-
         q=new nodo(p->op,p->next);
         if(prec==0) first=q;
         else prec->next=q;
@@ -52,8 +40,6 @@ void container::remove_item(Opera* o)       //condivisione controllata della mem
     if(p==0) first=original;
     else if(prec==0) first=p->next;
          else prec->next=p->next;
-                                        //aggiunto io oggi
-                                        // delete o;
 }
 
 
@@ -73,7 +59,7 @@ container::iteratore container::end() const{
 }
 
 Opera* container::operator[](const container::iteratore& i) const{
-    return i.punt->op;              //quando non è presente il db mida errore qui
+    return i.punt->op;
 }
 
 
@@ -103,7 +89,7 @@ container::smartp::smartp(const smartp& sp): punt(sp.punt) { if(punt) punt->rife
 
 container::smartp& container::smartp::operator=(const smartp& sp)
 {
-    if(this == &sp) return *this;					//tento di fare un'assegnazione con lo stesso puntatore
+    if(this == &sp) return *this;
     nodo* t=punt;
     punt=sp.punt;
     if(punt) (punt->riferimenti)++;

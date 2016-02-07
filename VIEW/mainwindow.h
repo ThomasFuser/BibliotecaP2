@@ -59,8 +59,6 @@ private:
     QHBoxLayout* orizzontale;
     QVBoxLayout* Prlayout, *bottoni;
 
-   // inserisci_Rivista* ins_riv;
-
     void creaLayout();
     void abilita_bottoni();
     void disabilita_bottoni();
