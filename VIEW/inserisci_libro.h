@@ -19,8 +19,8 @@ public:
 
 signals:
     void submitL(QString, QString);
-
-private slots:
+    void prova();
+public slots:
     void slot_submit();
 private:
 

@@ -15,6 +15,7 @@ signals:
 
 public slots:
     void add(QString,QString);
+    void stronzo();
 
 private:
     DataBase* model;

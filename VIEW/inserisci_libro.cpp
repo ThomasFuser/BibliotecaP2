@@ -57,6 +57,8 @@ void inserisci_Libro::slot_submit(){
                 QString uno=titolo->text();
                 QString due=autore->text();
                 emit submitL(uno,due);
+                std::cout<<"emissione segnale 2"<<std::endl;
+                emit prova();
 
             }
 }}
@@ -64,3 +66,5 @@ void inserisci_Libro::pulisci_Campi(){
     titolo->clear();
     autore->clear();
 }
+
+
