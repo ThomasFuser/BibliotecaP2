@@ -28,6 +28,7 @@ mainWindow::mainWindow(DataBase* db, QWidget *parent) : model(db),  QWidget(pare
     connect(presta_rientra,SIGNAL(clicked()),this,SLOT(slot_aggiorna_prestito()));
     connect(aggiungi_rivista,SIGNAL(clicked()),this,SLOT(slot_inserisci_rivista()));
     connect(aggiungi_libro,SIGNAL(clicked()),this,SLOT(slot_inserisci_libro()));
+
 }
 
 

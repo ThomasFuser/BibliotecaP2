@@ -26,7 +26,6 @@ SOURCES += main.cpp\
     VIEW/dettagli_libro.cpp \
     VIEW/mainwindow.cpp \
     CONTROLLER/c_mainwindow.cpp \
-    CONTROLLER/c_dett_libro.cpp \
     VIEW/inserisci_rivista.cpp \
     CONTROLLER/c_add_rivista.cpp \
     VIEW/inserisci_libro.cpp \
@@ -45,7 +44,6 @@ HEADERS  += \
     VIEW/dettagli_libro.h \
     VIEW/mainwindow.h \
     CONTROLLER/c_mainwindow.h \
-    CONTROLLER/c_dett_libro.h \
     VIEW/inserisci_rivista.h \
     CONTROLLER/c_add_rivista.h \
     VIEW/inserisci_libro.h \
