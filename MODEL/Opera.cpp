@@ -38,8 +38,7 @@ void Opera::Set_Titolo(const QString& text){ titolo=text;  }
 
 bool Opera::ricerca_campi(const QString& text) const{
     int ID=text.toInt();
-    if(QString::compare(text, GetTitolo(), Qt::CaseInsensitive)) return false;      //ricerca CaseInsensitive
-    else return true;
+    if(!(QString::compare(text, GetTitolo(), Qt::CaseInsensitive))) return true;      //ricerca CaseInsensitive
     if(ID==Get_Id()) return true;
     return false;
 }

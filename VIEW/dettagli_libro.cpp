@@ -41,6 +41,7 @@ Dettagli_Libro::Dettagli_Libro(int Id, DataBase* db, QWidget *parent) : id(Id), 
        grid->addWidget(consultabile,4,1);
 
        setLayout(grid);
+       centra_finestra();
 
 }
 
@@ -58,7 +59,7 @@ void Dettagli_Libro::update_dettagli(){
 }
 
 void Dettagli_Libro::set_style(){
-
+    resize(300,250);
     paletteLine=new QPalette();
     paletteLine->setColor(QPalette::Text,"#4c4c4c");
     paletteLine->setColor(QPalette::Base,"#f2f1f0");
@@ -97,5 +98,19 @@ Dettagli_Libro::~Dettagli_Libro(){
     delete consultabile;
     delete paletteLine;
     delete prestito;
+}
+
+void Dettagli_Libro::centra_finestra(){
+       int width = frameGeometry().width();
+       int height = frameGeometry().height();
+
+       QDesktopWidget wid;
+
+       int screenWidth = wid.screen()->width();
+       int screenHeight = wid.screen()->height();
+
+       int x =static_cast<int>((screenWidth-width)/2);
+       int y =static_cast<int>((screenHeight-height)/2);
+       move(x,y);
 }
 

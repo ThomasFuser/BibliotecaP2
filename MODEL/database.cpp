@@ -129,7 +129,6 @@ container DataBase::cerca_opera(const QString& text) const          //attenzione
     container cont;
     for(container::iteratore it=db.begin(); it!=db.end(); it++)
         if(db[it]->ricerca_campi(text)) cont.add_item(db[it]);
-    if(cont.empty()) std::cout<<"Warning: la ricerca non ha prodotto risultati"<<std::endl;
     return cont;
 }
 
@@ -139,7 +138,6 @@ container DataBase::cerca_opera(const QString& text) const          //attenzione
 
 Opera* DataBase::Trova_Precisa(int id) const
 {
-    std::cout<<"ID da cercare: "<<id<<std::endl;
     if(vuoto())
     {
         std::cout<<"Errore: DataBase vuoto"<<std::endl;
@@ -154,36 +152,16 @@ Opera* DataBase::Trova_Precisa(int id) const
         ris=it;
         it++;
     }
-
-    if(!trovata)
-    {
-
-        std::cout<<"Errore: opera non trovata"<<std::endl;
-        return 0;
-    }
-
-    //std::cout<<(*ris)->GetTitolo().toStdString()<<std::endl;
+    if(!trovata) return 0;
     return db[ris];
 }
 
 
 void DataBase::remove_opera(const int id)
 {  
-    std::cout<<"remove_opera"<<std::endl;
     Opera* prov=Trova_Precisa(id);
-
     if(prov!=0) db.remove_item(prov);
     else std::cout<<"nessuna opera da cancellare"<<std::endl;
-}
-
-
-void DataBase::Mod_Opera(const int id, const QString& titolo, const QString& autore, const QString& anno)
-{
-    Opera* op=Trova_Precisa(id);
-    if(op!=0)
-        std::cout<<"Errore: modifica non effettuata in quanto l'opera non è nel DataBase"<<std::endl;
-    else
-        op->Mod_Opera(titolo,autore,anno);
 }
 
 info DataBase::get_infoOpera(int ID) const{

@@ -39,7 +39,7 @@ Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db, QWidget *parent) : id(I
        grid->addWidget(consultabile,4,1);
 
        setLayout(grid);
-
+       centra_finestra();
 
        disabilita_modifica();
 
@@ -58,6 +58,8 @@ void Dettagli_Rivista::update_dettagli(){
 }
 
 void Dettagli_Rivista::set_style(){
+    resize(300,250);
+
     paletteLine=new QPalette();
     paletteLine->setColor(QPalette::Text,"#4c4c4c");
     paletteLine->setColor(QPalette::Base,"#f2f1f0");
@@ -82,6 +84,21 @@ void Dettagli_Rivista::disabilita_modifica(){
       identificativo->setEnabled(false);
       anno->setEnabled(false);
       consultabile->setEnabled(false);
+}
+
+void Dettagli_Rivista::centra_finestra(){
+       int width = frameGeometry().width();
+       int height = frameGeometry().height();
+
+       QDesktopWidget wid;
+
+       int screenWidth = wid.screen()->width();
+       int screenHeight = wid.screen()->height();
+
+       int x=static_cast<int>((screenWidth-width)/2);
+       int y=static_cast<int>((screenHeight-height)/2);
+
+       move(x,y);
 }
 
 

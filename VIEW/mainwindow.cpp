@@ -7,6 +7,7 @@ mainWindow::mainWindow(DataBase* db, QWidget *parent) : model(db),  QWidget(pare
     controllerOP=new C_listaop(model,tab);
 
   //bottoni
+    exit=new QPushButton("ESCI");
     presta_rientra=new QPushButton("PRESTA / RIENTRA");
     aggiungi_rivista=new QPushButton("AGGIUNGI RIVISTA");
     aggiungi_libro=new QPushButton("AGGIUNGI LIBRO");
@@ -21,6 +22,7 @@ mainWindow::mainWindow(DataBase* db, QWidget *parent) : model(db),  QWidget(pare
     bottoni=new QVBoxLayout();
 
     creaLayout();
+    centra_finestra();
 
     connect(tab,SIGNAL(selezione(int)),this,SLOT(modifica_campo(int)));
     connect(tab,SIGNAL(tabella_vuota()),this,SLOT(disabilita()));
@@ -28,8 +30,16 @@ mainWindow::mainWindow(DataBase* db, QWidget *parent) : model(db),  QWidget(pare
     connect(presta_rientra,SIGNAL(clicked()),this,SLOT(slot_aggiorna_prestito()));
     connect(aggiungi_rivista,SIGNAL(clicked()),this,SLOT(slot_inserisci_rivista()));
     connect(aggiungi_libro,SIGNAL(clicked()),this,SLOT(slot_inserisci_libro()));
+    connect(exit,SIGNAL(clicked()),qApp,SLOT(quit()));
+  // connessione della ricerca
+    connect(barra_cerca,SIGNAL(textEdited(QString)),this,SLOT(testo_editato(QString)));
 
 }
+
+void mainWindow::testo_editato(QString text){ emit cerca_opera(text); }
+
+
+
 
 
 void mainWindow::slot_inserisci_rivista(){
@@ -78,6 +88,7 @@ void mainWindow::creaLayout(){
 
     Prlayout->addWidget(barra_cerca);
     Prlayout->addLayout(orizzontale);
+    Prlayout->addWidget(exit);
     setLayout(Prlayout);
 
 }
@@ -113,7 +124,10 @@ void mainWindow::rimuovi_segnale(){
         }
 }
 
-void mainWindow::updateMainWindow(){ tab->updateTable(); }
+
+void mainWindow::costruisci_Tabella(const container& lista){ tab->build_Nuova(lista); }
+
+void mainWindow::aggiorna_Tabella(){ tab->updateTable(); }
 
 void mainWindow::abilita_bottoni(){
     rimuovi_opera->setEnabled(true);
@@ -123,6 +137,21 @@ void mainWindow::abilita_bottoni(){
 void mainWindow::disabilita_bottoni(){
    rimuovi_opera->setEnabled(false);
    presta_rientra->setEnabled(false);
+}
+
+
+void mainWindow::centra_finestra(){
+    int width = frameGeometry().width();
+       int height = frameGeometry().height();
+
+       QDesktopWidget wid;
+
+       int screenWidth = wid.screen()->width();
+       int screenHeight = wid.screen()->height();
+
+       int x =static_cast<int>((screenWidth-width)/2);
+       int y =static_cast<int>((screenHeight-height)/2);
+       move(x,y);
 }
 
 

@@ -7,6 +7,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QMessageBox>
+#include<QDesktopWidget>
 
 #include "listaop.h"
 #include "../CONTROLLER/c_listaop.h"
@@ -20,22 +21,25 @@ class mainWindow : public QWidget
     Q_OBJECT
 public:
     explicit mainWindow(DataBase*, QWidget *parent = 0);
-    void updateMainWindow();
+    void aggiorna_Tabella();
+    void costruisci_Tabella(const container&);
     ~mainWindow();
 signals:
     void rimuovi(int);
     void aggiorna_prestito(int);
     void show_inserisci_rivista();
     void show_inserisci_libro();
-public slots:
+    void cerca_opera(QString);
+
+private slots:
     void rimuovi_segnale();
     void slot_aggiorna_prestito();
     void slot_inserisci_rivista();
     void slot_inserisci_libro();
 
-private slots:
     void modifica_campo(int);     //slot che consente di rimuovere l'opera selezionata
     void disabilita();
+    void testo_editato(QString);
 private:
     DataBase* model;
 
@@ -50,6 +54,7 @@ private:
     QPushButton* aggiungi_rivista;
     QPushButton* aggiungi_libro;
     QPushButton* rimuovi_opera;
+    QPushButton* exit;
 
     QHBoxLayout* orizzontale;
     QVBoxLayout* Prlayout, *bottoni;
@@ -59,7 +64,7 @@ private:
     void creaLayout();
     void abilita_bottoni();
     void disabilita_bottoni();
-
+    void centra_finestra();
 
 };
 

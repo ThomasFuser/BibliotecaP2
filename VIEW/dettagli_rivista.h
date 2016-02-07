@@ -5,7 +5,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QMainWindow>
-
+#include <QDesktopWidget>
 #include <QApplication>
 
 
@@ -49,6 +49,7 @@ private:
     void set_style();
     void abilita_modifica();
     void disabilita_modifica();
+    void centra_finestra();
 };
 
 #endif // DETTAGLI_RIVISTA_H

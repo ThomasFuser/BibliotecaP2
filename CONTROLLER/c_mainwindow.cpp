@@ -5,12 +5,24 @@ C_mainWindow::C_mainWindow(DataBase* db,mainWindow* v, QObject *parent) :model(d
     connect(view,SIGNAL(aggiorna_prestito(int)),this,SLOT(aggiorna_prestitoDB(int)));
     connect(view,SIGNAL(show_inserisci_rivista()),this,SLOT(inserisci_rivistaDB()));
     connect(view,SIGNAL(show_inserisci_libro()),this,SLOT(inserisci_libroDB()));
+
+   //connessione che permette la ricerca di un'opera o di una serie di opere
+    connect(view,SIGNAL(cerca_opera(QString)),this,SLOT(cerca_operaDB(QString)));
 }
+
+void C_mainWindow::cerca_operaDB(QString text){
+    container lista=model->cerca_opera(text);
+    if(!(lista.empty())){
+        view->costruisci_Tabella(lista);
+    }else view->aggiorna_Tabella();
+
+}
+
 
 
 void C_mainWindow::rimuovi_operaDB(int ID){
     model->remove_opera(ID);
-    view->updateMainWindow();
+    view->aggiorna_Tabella();
 }
 
 void C_mainWindow::aggiorna_prestitoDB(int ID){
@@ -29,6 +41,10 @@ void C_mainWindow::aggiorna_prestitoDB(int ID){
     //emit aggiorna_dettagli();
 
 }
+
+
+
+
 
 
 void C_mainWindow::inserisci_rivistaDB(){

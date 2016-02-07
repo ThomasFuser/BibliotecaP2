@@ -40,7 +40,7 @@ public:
     void add_Rivista(info);
     void add_Libro(info);
 
-    void Mod_Opera(const int id, const QString&, const QString&, const QString&); //metodo che modifica i campi dati dell'oggetto puntato da Opera*
+
 
     //ritorna un oggetto "info" contenente tutte le informazioni riguardanti un' opera con un preciso ID. se l'opera non è oresente la funzione ritorna un oggetto info con tutti i suoi campi contenenti "sconosciuto" mentre nel campo corrispondente ad ID: ID non valido
     info get_infoOpera(int) const;

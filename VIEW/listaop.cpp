@@ -58,12 +58,12 @@ void listaOp::updateTable(){
 
 //selezione di una opera all'interno della tabella -> selezione l'id in modo tale da facilitare la ricerca ed invia un segnale che consentirà al controller di aprire la finestra desiderata
 void listaOp::doppio_click(int r){
-    select_opera=table->item(r,0)->text().toInt(); std::cout<<"selezione id: "<<select_opera<<std::endl;
+    select_opera=table->item(r,0)->text().toInt();
     emit richiesta_info(select_opera);
 }
 
 void listaOp::click_singolo(int r){
-    select_opera=table->item(r,0)->text().toInt(); std::cout<<"selezione id: "<<select_opera<<std::endl;
+    select_opera=table->item(r,0)->text().toInt();
     emit selezione(select_opera);
 }
 
@@ -100,6 +100,36 @@ void listaOp::set_stile_tabella(){
     table->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
+
+void listaOp::build_Nuova(const container& lista){
+    int row=0;
+    if(!(lista.empty()))
+    {
+         int id;
+         QString i;
+         container::iteratore it;
+
+         for(it=lista.begin(); it!=lista.end(); it++)
+         {
+            table->setRowCount(row+1);
+            id=(*it)->Get_Id();
+            i.setNum(id);
+
+            QTableWidgetItem *ID = new QTableWidgetItem(i);
+            QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
+            QTableWidgetItem *tipo = new QTableWidgetItem((*it)->get_Tipo());
+
+            table->setItem(row,0,ID);
+            table->setItem(row,1,valore);
+            table->setItem(row,2,tipo);
+            row++;
+         }
+    }
+    else{
+            table->setRowCount(row);
+            emit tabella_vuota();
+        }
+}
 
 
 

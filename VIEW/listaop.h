@@ -18,6 +18,7 @@ class listaOp : public QWidget
 public:
     explicit listaOp(DataBase*, QWidget *parent = 0);
     void updateTable();          //metodo che popola la tabella
+    void build_Nuova(const container&);
     ~listaOp();
 signals:
    void richiesta_info(const int);
