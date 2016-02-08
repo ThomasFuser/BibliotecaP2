@@ -2,6 +2,7 @@
 #define WIDGET_PADRE_H
 
 #include <QWidget>
+#include <QDesktopWidget>
 #include "../MODEL/database.h"
 
 class Widget_Padre : public QWidget
@@ -24,8 +25,9 @@ protected:
     virtual void aggiorna_vista() =0;
     virtual void set_style() =0;
     virtual void costruisci_contenuto() =0;
-    virtual ~Widget_Padre(){};
 
+    virtual ~Widget_Padre(){};
+    void centra_finestra();
 
 };
 

@@ -10,18 +10,22 @@
 #include<QDesktopWidget>
 #include <QApplication>
 #include "listaop.h"
+#include "widget_padre.h"
+
 #include "../CONTROLLER/c_listaop.h"
 #include "../MODEL/database.h"
 
 
 
-class mainWindow : public QWidget
+class mainWindow : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit mainWindow(DataBase*, QWidget *parent = 0);
-    void aggiorna_Tabella();
+    explicit mainWindow(DataBase*);
+    virtual void aggiorna_vista();
+    virtual void costruisci_contenuto();
     void costruisci_Tabella(const container&);
+    virtual void set_style();
     ~mainWindow();
 signals:
     void rimuovi(int);
@@ -61,7 +65,7 @@ private:
     void creaLayout();
     void abilita_bottoni();
     void disabilita_bottoni();
-    void centra_finestra();
+
 
 };
 

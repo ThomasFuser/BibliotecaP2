@@ -1,81 +1,56 @@
 #include"listaop.h"
 
-listaOp::listaOp(DataBase* db, QWidget *parent): QWidget(parent), model(db)
-{
-    table=new QTableWidget(this);
+listaOp::listaOp(DataBase* db): Widget_Padre(db){
+
+    table=new QTableWidget();
 
   //inserisco la tabella nel layout del widget
     layout_table=new QVBoxLayout();
     layout_table->addWidget(table);
-    set_stile_tabella();
+    set_style();
     setLayout(layout_table);
 
-
-
-    updateTable();
+    costruisci_contenuto();
 
   //segnali
-    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int))); //doppio click
+    connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));     //doppio click
     connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo(int)));          //click singolo
-
 }
 
-void listaOp::updateTable(){
+void listaOp::costruisci_contenuto(){ aggiorna_vista(); }
+
+void listaOp::aggiorna_vista(){
 
     int row=0;
-    if(!(model->vuoto()))
-    {
-         int id;
-         QString i;
-         container::iteratore it;
+        DataBase* ciao=get_model();
+        if(!((get_model())->vuoto()))
+        {
+             int id;
+             QString i;
+             container::iteratore it;
+             for(it=(get_model())->db_begin(); it!=(get_model())->db_end(); it++)
+             {
+                table->setRowCount(row+1);
+                id=(*it)->Get_Id();
+                i.setNum(id);
 
-         for(it=model->db_begin(); it!=model->db_end(); it++)
-         {
-            table->setRowCount(row+1);
-            id=(*it)->Get_Id();
-            i.setNum(id);
+                QTableWidgetItem *ID = new QTableWidgetItem(i);
+                QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
+                QTableWidgetItem *tipo = new QTableWidgetItem((*it)->get_Tipo());
 
-            QTableWidgetItem *ID = new QTableWidgetItem(i);
-            QTableWidgetItem *valore = new QTableWidgetItem((*it)->GetTitolo());
-            QTableWidgetItem *tipo = new QTableWidgetItem((*it)->get_Tipo());
-
-            table->setItem(row,0,ID);
-            table->setItem(row,1,valore);
-            table->setItem(row,2,tipo);
-            row++;
-         }
-    }
-    else{
-            table->setRowCount(row);
-            emit tabella_vuota();
+                table->setItem(row,0,ID);
+                table->setItem(row,1,valore);
+                table->setItem(row,2,tipo);
+                row++;
+             }
         }
-
+        else{
+                table->setRowCount(row);
+                emit tabella_vuota();
+            }
 }
 
-
-//slot
-
-
-//selezione di una opera all'interno della tabella -> selezione l'id in modo tale da facilitare la ricerca ed invia un segnale che consentirà al controller di aprire la finestra desiderata
-void listaOp::doppio_click(int r){
-    select_opera=table->item(r,0)->text().toInt();
-    emit richiesta_info(select_opera);
-}
-
-void listaOp::click_singolo(int r){
-    select_opera=table->item(r,0)->text().toInt();
-    emit selezione(select_opera);
-}
-
-
-listaOp::~listaOp(){
-    delete table;
-    delete layout_table;
-}
-
-
-
-void listaOp::set_stile_tabella(){
+void listaOp::set_style(){
 
   //set numero righe e colonne della tabella
     table->setColumnCount(3);
@@ -99,7 +74,6 @@ void listaOp::set_stile_tabella(){
     table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     table->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
-
 
 void listaOp::build_Nuova(const container& lista){
     int row=0;
@@ -130,6 +104,24 @@ void listaOp::build_Nuova(const container& lista){
             emit tabella_vuota();
         }
 }
+
+                    ////////////////////////////slot/////////////////////////////
+
+void listaOp::doppio_click(int r){
+    select_opera=table->item(r,0)->text().toInt();
+    emit richiesta_info(select_opera);
+}
+
+void listaOp::click_singolo(int r){
+    select_opera=table->item(r,0)->text().toInt();
+    emit selezione(select_opera);
+}
+
+listaOp::~listaOp(){
+    delete table;
+    delete layout_table;
+}
+
 
 
 

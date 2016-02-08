@@ -6,7 +6,9 @@ C_listaop::C_listaop(DataBase* db, listaOp* v,QObject *parent) : model(db), view
 
 
 void C_listaop::visualizza_info(int id){
+
     model->Trova_Precisa(3);
+
     if(dynamic_cast<Rivista*>(model->Trova_Precisa(id)))
     {
         dett_rivista=new Dettagli_Rivista(id,model);

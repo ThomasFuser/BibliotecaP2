@@ -11,5 +11,5 @@ c_add_libro::c_add_libro(DataBase* db,inserisci_Libro* v ,mainWindow* mv, QObjec
 
 void c_add_libro::add(info op){
     model->add_Libro(op);
-    mainW->aggiorna_Tabella();
+    mainW->aggiorna_vista();
 }

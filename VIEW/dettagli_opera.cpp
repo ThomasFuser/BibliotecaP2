@@ -28,22 +28,6 @@ Dettagli_opera::Dettagli_opera(int ID, DataBase* db) : id(ID) , Widget_Padre(db)
         grid->addWidget(consultabile,4,1);
 }
 
-
-void Dettagli_opera::centra_finestra(){
-       int width = frameGeometry().width();
-       int height = frameGeometry().height();
-
-       QDesktopWidget wid;
-
-       int screenWidth = wid.screen()->width();
-       int screenHeight = wid.screen()->height();
-
-       int x=static_cast<int>((screenWidth-width)/2);
-       int y=static_cast<int>((screenHeight-height)/2);
-
-       move(x,y);
-}
-
 void Dettagli_opera::set_style(){
     resize(300,250);
     paletteLine=new QPalette();

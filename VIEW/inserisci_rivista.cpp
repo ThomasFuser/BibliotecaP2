@@ -54,8 +54,7 @@ void inserisci_Rivista::slot_submit(){
                 info op(titolo->text(),"","",anno->text());
                 emit submitR(op);
                 pulisci_Campi();
-                //emit submitR(titolo->text(),anno->text());
-            }
+             }
             }
 }
 void inserisci_Rivista::pulisci_Campi(){
@@ -77,7 +76,3 @@ void inserisci_Rivista::centra_finestra(){
 
        move(x,y);
 }
-
-
-
-

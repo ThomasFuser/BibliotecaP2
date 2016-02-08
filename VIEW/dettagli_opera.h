@@ -3,13 +3,6 @@
 
 #include <QWidget>
 #include <QLabel>
-#include <QVBoxLayout>
-
-#include <QDesktopWidget>
-
-
-
-#include <QLabel>
 #include <QLineEdit>
 #include <QGridLayout>
 
@@ -23,7 +16,6 @@ protected:
     virtual void set_style();
     virtual void costruisci_contenuto();
     void disabilita_modifica();
-    void centra_finestra();
 
 private:
 
@@ -41,6 +33,7 @@ private:
 
     QPalette* paletteLine;
     QGridLayout* grid;
+
 public:
 
     virtual void aggiorna_vista();

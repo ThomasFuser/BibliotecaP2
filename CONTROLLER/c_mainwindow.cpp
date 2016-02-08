@@ -14,7 +14,7 @@ void C_mainWindow::cerca_operaDB(QString text){
     container lista=model->cerca_opera(text);
     if(!(lista.empty())){
         view->costruisci_Tabella(lista);
-    }else view->aggiorna_Tabella();
+    }else view->aggiorna_vista();
 
 }
 
@@ -22,7 +22,7 @@ void C_mainWindow::cerca_operaDB(QString text){
 
 void C_mainWindow::rimuovi_operaDB(int ID){
     model->remove_opera(ID);
-    view->aggiorna_Tabella();
+    view->aggiorna_vista();
 }
 
 void C_mainWindow::aggiorna_prestitoDB(int ID){

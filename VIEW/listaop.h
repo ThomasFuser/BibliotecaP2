@@ -8,16 +8,17 @@
 #include <QAbstractItemView>
 #include <QVBoxLayout>
 
-
+#include "widget_padre.h"
 #include"../MODEL/database.h"
 #include"../MODEL/container.h"
 
-class listaOp : public QWidget
+class listaOp : public Widget_Padre
 {
     Q_OBJECT
 public:
-    explicit listaOp(DataBase*, QWidget *parent = 0);
-    void updateTable();          //metodo che popola la tabella
+    explicit listaOp(DataBase*);
+    void aggiorna_vista();          //metodo che popola la tabella
+    void costruisci_contenuto();
     void build_Nuova(const container&);
     ~listaOp();
 signals:
@@ -30,13 +31,13 @@ private slots:
 
 private:
   //campi dati
-    DataBase* model;
+
     QTableWidget* table;
     QVBoxLayout* layout_table;
 
     int select_opera;
   //metodi privati
-    void set_stile_tabella();
+    void set_style();
 
 };
 
