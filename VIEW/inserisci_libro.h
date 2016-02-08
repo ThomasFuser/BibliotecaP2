@@ -8,6 +8,7 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QGridLayout>
+#include <QDesktopWidget>
 
 #include "../MODEL/database.h"
 
@@ -18,8 +19,8 @@ public:
     explicit inserisci_Libro(QWidget *parent = 0);
 
 signals:
-    void submitL(QString, QString);
-    void prova();
+    void submitL(info);
+   // void prova();
 public slots:
     void slot_submit();
 private:
@@ -37,6 +38,7 @@ private:
 
     void build_Layout();
     void pulisci_Campi();
+    void centra_finestra();
 
 
 

@@ -17,7 +17,7 @@ private:
 
     static int maxId;
 public:
-    Opera(QString , bool =0);
+    Opera(QString , bool =1);
     QString GetTitolo()const;       //ritorna il titolo dell'opera
     void Set_Id(const int);         //setta Id Opera
     void Set_Max(const int);        //setta Id max

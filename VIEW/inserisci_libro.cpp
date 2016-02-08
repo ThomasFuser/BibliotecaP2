@@ -13,7 +13,7 @@ inserisci_Libro::inserisci_Libro(QWidget *parent) : QWidget(parent){
     layout=new QVBoxLayout();
 
     build_Layout();
-
+    centra_finestra();
     connect(submit,SIGNAL(clicked()),this,SLOT(slot_submit()));
 }
 
@@ -44,27 +44,35 @@ void inserisci_Libro::slot_submit(){
         else{
             QMessageBox warning;
             warning.setIcon(QMessageBox::Question);
-            warning.setWindowTitle("Inserisci nuova rivista");
-            warning.setText("Sei sicuro di voler inserire la rivista <b>"+titolo->text()+"</b>");
+            warning.setWindowTitle("Inserisci nuovo libro");
+            warning.setText("Sei sicuro di voler inserire il libro <b>"+titolo->text()+"</b>");
             warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
             warning.setDefaultButton(QMessageBox::Cancel);
             int ret = warning.exec();
             if(ret==QMessageBox::Yes) {
-                std::cout<<"invio segnale submitR"<<std::endl;
-                /*info op(titolo->text(),"","",anno->text());
-                emit submitR(op);
-                pulisci_Campi();*/
-                QString uno=titolo->text();
-                QString due=autore->text();
-                emit submitL(uno,due);
-                std::cout<<"emissione segnale 2"<<std::endl;
-                emit prova();
-
+                info op(titolo->text(),"","",autore->text());
+                emit submitL(op);
+                pulisci_Campi();
             }
-}}
+            }
+}
 void inserisci_Libro::pulisci_Campi(){
     titolo->clear();
     autore->clear();
 }
 
 
+void inserisci_Libro::centra_finestra(){
+       int width = frameGeometry().width();
+       int height = frameGeometry().height();
+
+       QDesktopWidget wid;
+
+       int screenWidth = wid.screen()->width();
+       int screenHeight = wid.screen()->height();
+
+       int x=static_cast<int>((screenWidth-width)/2);
+       int y=static_cast<int>((screenHeight-height)/2);
+
+       move(x,y);
+}

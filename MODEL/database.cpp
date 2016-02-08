@@ -111,12 +111,12 @@ void DataBase::Add_Opera(Opera* op)
 
 void DataBase::add_Rivista(info op){
     int anno=op.get_dettaglio().toInt();
-    Rivista* r=new Rivista(op.get_titolo(),anno);
+    Rivista* r=new Rivista(op.get_titolo(),anno,1);
     db.add_item(r);
 }
 
 void DataBase::add_Libro(info op){
-    Libro* l=new Libro(op.get_titolo(),op.get_dettaglio());
+    Libro* l=new Libro(op.get_titolo(),op.get_dettaglio(),1);
     db.add_item(l);
 }
 

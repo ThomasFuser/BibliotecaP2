@@ -15,7 +15,7 @@ public:
 signals:
 
 public slots:
-    void add(QString,QString);
+    void add(info);
 
 
 private:

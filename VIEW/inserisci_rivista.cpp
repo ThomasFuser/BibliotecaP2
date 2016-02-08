@@ -13,7 +13,7 @@ inserisci_Rivista::inserisci_Rivista(QWidget *parent) : QWidget(parent){
     layout=new QVBoxLayout();
 
     build_Layout();
-
+    centra_finestra();
     connect(submit,SIGNAL(clicked()),this,SLOT(slot_submit()));
 }
 
@@ -51,16 +51,31 @@ void inserisci_Rivista::slot_submit(){
             int ret = warning.exec();
             if(ret==QMessageBox::Yes) {
                 std::cout<<"invio segnale submitR"<<std::endl;
-                /*info op(titolo->text(),"","",anno->text());
+                info op(titolo->text(),"","",anno->text());
                 emit submitR(op);
-                pulisci_Campi();*/
-                emit submitR(titolo->text(),anno->text());
-
+                pulisci_Campi();
+                //emit submitR(titolo->text(),anno->text());
             }
-}}
+            }
+}
 void inserisci_Rivista::pulisci_Campi(){
     titolo->clear();
     anno->clear();
+}
+
+void inserisci_Rivista::centra_finestra(){
+       int width = frameGeometry().width();
+       int height = frameGeometry().height();
+
+       QDesktopWidget wid;
+
+       int screenWidth = wid.screen()->width();
+       int screenHeight = wid.screen()->height();
+
+       int x=static_cast<int>((screenWidth-width)/2);
+       int y=static_cast<int>((screenHeight-height)/2);
+
+       move(x,y);
 }
 
 

@@ -15,7 +15,7 @@ public:
 signals:
 
 private slots:
-    void add(QString,QString);
+    void add(info);
 
 private:
     DataBase* model;

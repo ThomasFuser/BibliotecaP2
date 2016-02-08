@@ -8,7 +8,7 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QGridLayout>
-
+#include <QDesktopWidget>
 #include "../MODEL/database.h"
 
 class inserisci_Rivista : public QWidget
@@ -18,7 +18,10 @@ public:
     explicit inserisci_Rivista(QWidget *parent = 0);
 
 signals:
-    void submitR(QString, QString);
+    void submitR(info);
+
+    void prova();
+
 public slots:
     void slot_submit();
 private:
@@ -36,7 +39,7 @@ private:
 
     void build_Layout();
     void pulisci_Campi();
-
+    void centra_finestra();
 
 
 };
