@@ -49,14 +49,14 @@ void C_mainWindow::aggiorna_prestitoDB(int ID){
 
 void C_mainWindow::inserisci_rivistaDB(){
     inserisci_Rivista* inserisci=new inserisci_Rivista();
-    c_add_rivista * controller=new c_add_rivista(model,inserisci);
+    c_add_rivista * controller=new c_add_rivista(model,inserisci,view);
     inserisci->show();
 
 
 }
 void C_mainWindow::inserisci_libroDB(){
     inserisci_Libro* inserisci=new inserisci_Libro();
-    c_add_libro* controller=new c_add_libro(model,inserisci);
+    c_add_libro* controller=new c_add_libro(model,inserisci,view);
     inserisci->show();
 }
 

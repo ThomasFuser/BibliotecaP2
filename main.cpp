@@ -9,7 +9,7 @@
 #include <VIEW/listaop.h>
 #include <VIEW/dettagli_rivista.h>
 #include <VIEW/dettagli_libro.h>
-#include <VIEW/mainwindow.h>
+//#include <VIEW/mainwindow.h>
 
 #include <CONTROLLER/c_listaop.h>
 #include <CONTROLLER/c_mainwindow.h>

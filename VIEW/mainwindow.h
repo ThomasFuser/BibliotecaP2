@@ -12,9 +12,7 @@
 #include "listaop.h"
 #include "../CONTROLLER/c_listaop.h"
 #include "../MODEL/database.h"
-#include "../CONTROLLER/c_add_rivista.h"
-#include "../VIEW/inserisci_rivista.h"
-#include "../VIEW/inserisci_rivista.h"
+
 
 class mainWindow : public QWidget
 {
