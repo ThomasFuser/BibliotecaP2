@@ -1,144 +1,37 @@
 #include "dettagli_rivista.h"
 #include <QPalette>
-Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db, QWidget *parent) : id(Id), model(db), QWidget(parent)
+Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db) : Dettagli_opera(Id,db)
 {
     setWindowTitle("Dettagli della rivista");
 
+    a=new QLabel("ANNO:");
 
-    //set lable
-       t=new QLabel("TITOLO:");
-       p=new QLabel("PRESTITO:");
-       i=new QLabel("ID:");
-       a=new QLabel("ANNO DI USCITA");
-       c=new QLabel("IN SEDE:");
+    anno=new QLineEdit();
 
-    //set QLineEdit
-       titolo=new QLineEdit();
-       prestito=new QLineEdit();
-       identificativo=new QLineEdit();
-       anno=new QLineEdit();
-       consultabile=new QLineEdit();
+    get_grid()->addWidget(a,1,0);
+    get_grid()->addWidget(anno,1,1);
 
-    //inserimento dei dati e settaggio dello stile
-       update_dettagli();
-       set_style();
-
-    //creo il layout manager
-       QGridLayout* grid=new QGridLayout;
-
-    //setto i laypput manager
-       grid->addWidget(t,0,0);
-       grid->addWidget(titolo,0,1);    
-       grid->addWidget(a,1,0);
-       grid->addWidget(anno,1,1);
-       grid->addWidget(i,2,0);
-       grid->addWidget(identificativo,2,1);
-       grid->addWidget(p,3,0);
-       grid->addWidget(prestito,3,1);
-       grid->addWidget(c,4,0);
-       grid->addWidget(consultabile,4,1);
-
-       setLayout(grid);
-       centra_finestra();
-
-       disabilita_modifica();
-
+    setLayout(get_grid());
+    centra_finestra();
+    disabilita_modifica();
+    costruisci_contenuto();
+    set_style();
 
 }
 
-
-void Dettagli_Rivista::update_dettagli(){
-    info iRivista=model->get_infoOpera(id);
-
-    titolo->setText(iRivista.get_titolo());
-    prestito->setText(iRivista.get_stato());
-    identificativo->setText(iRivista.get_ID());
-    anno->setText(iRivista.get_dettaglio());
-    consultabile->setText(iRivista.is_consultabile());
+void Dettagli_Rivista::costruisci_contenuto(){
+     Dettagli_opera::costruisci_contenuto();
+     info iLibro=(get_model())->get_infoOpera(get_ID());
+     anno->setText(iLibro.get_dettaglio());
 }
 
 void Dettagli_Rivista::set_style(){
-    resize(300,250);
-
-    paletteLine=new QPalette();
-    paletteLine->setColor(QPalette::Text,"#4c4c4c");
-    paletteLine->setColor(QPalette::Base,"#f2f1f0");
-
-    titolo->setPalette(*paletteLine);
-    prestito->setPalette(*paletteLine);
-    identificativo->setPalette(*paletteLine);
-    anno->setPalette(*paletteLine);
-    consultabile->setPalette(*paletteLine);
+    Dettagli_opera::set_style();
+    anno->setPalette(*get_paletteLine());
 }
 
-void Dettagli_Rivista::abilita_modifica(){
-    titolo->setEnabled(true);
-    identificativo->setEnabled(true);
-    anno->setEnabled(true);
-    consultabile->setEnabled(true);
-}
 
 void Dettagli_Rivista::disabilita_modifica(){
-      titolo->setEnabled(false);
-      prestito->setEnabled(false);
-      identificativo->setEnabled(false);
+      Dettagli_opera::disabilita_modifica();
       anno->setEnabled(false);
-      consultabile->setEnabled(false);
 }
-
-void Dettagli_Rivista::centra_finestra(){
-       int width = frameGeometry().width();
-       int height = frameGeometry().height();
-
-       QDesktopWidget wid;
-
-       int screenWidth = wid.screen()->width();
-       int screenHeight = wid.screen()->height();
-
-       int x=static_cast<int>((screenWidth-width)/2);
-       int y=static_cast<int>((screenHeight-height)/2);
-
-       move(x,y);
-}
-
-
-Dettagli_Rivista::~Dettagli_Rivista(){
-    delete t;
-    delete p;
-    delete i;
-    delete a;
-    delete c;
-    delete titolo;
-    delete anno;
-    delete identificativo;
-    delete prestito;
-    delete consultabile;
-    delete paletteLine;
-    //delete model;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

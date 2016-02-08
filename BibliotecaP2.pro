@@ -29,7 +29,9 @@ SOURCES += main.cpp\
     VIEW/inserisci_rivista.cpp \
     CONTROLLER/c_add_rivista.cpp \
     VIEW/inserisci_libro.cpp \
-    CONTROLLER/c_add_libro.cpp
+    CONTROLLER/c_add_libro.cpp \
+    VIEW/widget_padre.cpp \
+    VIEW/dettagli_opera.cpp
 
 HEADERS  += \
     MODEL/container.h \
@@ -47,7 +49,9 @@ HEADERS  += \
     VIEW/inserisci_rivista.h \
     CONTROLLER/c_add_rivista.h \
     VIEW/inserisci_libro.h \
-    CONTROLLER/c_add_libro.h
+    CONTROLLER/c_add_libro.h \
+    VIEW/widget_padre.h \
+    VIEW/dettagli_opera.h
 
 FORMS    += mainwindow.ui
 

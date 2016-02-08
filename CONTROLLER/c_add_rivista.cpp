@@ -11,6 +11,6 @@ c_add_rivista::c_add_rivista(DataBase* db,inserisci_Rivista* v ,mainWindow* mv, 
 
 void c_add_rivista::add(info op){
     model->add_Rivista(op);
-   mainW->aggiorna_Tabella();
+    mainW->aggiorna_Tabella();
 }
 

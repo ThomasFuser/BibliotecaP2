@@ -1,57 +1,27 @@
 #ifndef DETTAGLI_LIBRO_H
 #define DETTAGLI_LIBRO_H
 
-#include <QWidget>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QMainWindow>
-#include <QDesktopWidget>
-#include <QApplication>
+#include"dettagli_opera.h"
 
-
-#include <QPushButton>
-#include <QLabel>
-#include <QLineEdit>
-#include <QGridLayout>
-#include <QVBoxLayout>
-#include"../MODEL/database.h"
-#include"../MODEL/info.h"
-
-class Dettagli_Libro : public QWidget
+class Dettagli_Libro : public Dettagli_opera
 {
     Q_OBJECT
 public:
-    explicit Dettagli_Libro(int, DataBase* =0, QWidget *parent = 0);
+    explicit Dettagli_Libro(int, DataBase*);
     void update_dettagli();
-    ~Dettagli_Libro();
-
-signals:
-
-public slots:
-
+    ~Dettagli_Libro(){};                                    //RIDEFINIRE IL DISTRUTTORE
 
 private:
-    DataBase* model;
-    int id;
 
-    QLabel* t;     //titolo
-    QLabel* p;     //stato
-    QLabel* i;     //id
-    QLabel* a;     //anno
-    QLabel* c;     //disponibilità
+    QLabel* a;     //autore
 
-    QLineEdit* titolo;
-    QLineEdit* prestito;
-    QLineEdit* identificativo;
     QLineEdit* autore;
-    QLineEdit* consultabile;
 
-    QPalette* paletteLine;
-
-    void set_style();
+    void costruisci_contenuto();
     void disabilita_modifica();
     void abilita_modifica();
-    void centra_finestra();
+    void set_style();
+
 };
 
 

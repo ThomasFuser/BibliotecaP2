@@ -8,10 +8,11 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include<QDesktopWidget>
-
+#include <QApplication>
 #include "listaop.h"
 #include "../CONTROLLER/c_listaop.h"
 #include "../MODEL/database.h"
+
 
 
 class mainWindow : public QWidget

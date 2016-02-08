@@ -50,7 +50,9 @@ DataBase db;
     /*listaOp* view= new listaOp(db);
     C_listaop*  controller=new C_listaop(db, view);*/
 
+    Dettagli_opera* prov_n=new Dettagli_Libro(15,&db);
 
+    prov_n->show();
 
 
 

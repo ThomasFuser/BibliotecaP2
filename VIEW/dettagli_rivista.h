@@ -1,55 +1,25 @@
 #ifndef DETTAGLI_RIVISTA_H
 #define DETTAGLI_RIVISTA_H
+#include"dettagli_opera.h"
 
-#include <QWidget>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QMainWindow>
-#include <QDesktopWidget>
-#include <QApplication>
-
-
-#include <QPushButton>
-#include <QLabel>
-#include <QLineEdit>
-#include <QGridLayout>
-#include"../MODEL/database.h"
-#include"../MODEL/info.h"
-
-class Dettagli_Rivista : public QWidget
+class Dettagli_Rivista : public Dettagli_opera
 {
     Q_OBJECT
 public:
-    explicit Dettagli_Rivista(int, DataBase* =0, QWidget *parent = 0);
+    explicit Dettagli_Rivista(int, DataBase*);
     void update_dettagli();
-    ~Dettagli_Rivista();
-signals:
-
-public slots:
-
+    ~Dettagli_Rivista(){};                                    //RIDEFINIRE IL DISTRUTTORE
 
 private:
-    DataBase* model;
-    int id;
 
-    QLabel* t;     //titolo
-    QLabel* p;     //prestito
-    QLabel* i;     //id
     QLabel* a;     //anno
-    QLabel* c;     //disponibilità
 
-    QLineEdit* titolo;
-    QLineEdit* prestito;
-    QLineEdit* identificativo;
     QLineEdit* anno;
-    QLineEdit* consultabile;
 
-    QPalette* paletteLine;
-
-    void set_style();
-    void abilita_modifica();
+    void costruisci_contenuto();
     void disabilita_modifica();
-    void centra_finestra();
+    void set_style();
+
 };
 
 #endif // DETTAGLI_RIVISTA_H
