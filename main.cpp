@@ -58,6 +58,7 @@ DataBase db;
 
     finestra->show();
 
+
     return a.exec();
 }
 

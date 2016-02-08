@@ -65,7 +65,8 @@ private:
     void creaLayout();
     void abilita_bottoni();
     void disabilita_bottoni();
-
+    void registrazione_elenco() const;
+    void elimina_registrazione() const;
 
 };
 

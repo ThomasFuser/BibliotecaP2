@@ -6,6 +6,7 @@
 #include<QXmlStreamWriter>
 #include<QXmlStreamReader>
 #include<QString>
+#include<vector>
 
 #include"container.h"               //contenitore
 #include"Opera.h"                   //classe base della gerarchia
@@ -13,12 +14,16 @@
 #include"Libro.h"                   //derivata 2
 #include"info.h"
 
+#include"../VIEW/widget_padre.h"
+
+//class Widget_Padre;
+
 class DataBase{
 private:
     //campi dati
     static QString filename;
     container db;
-
+    std::vector<Widget_Padre*> registro;                //registro delle view collegate al modello
     void Load();                                        //crea il contenitore in RAM leggendo il file xml
     void Close();                                       //salva tutti i cambiamenti eseguiti dall'utente nel file XML
 
@@ -48,7 +53,9 @@ public:
     void Presta_ricevi(int);
 
 
-
+    void aggiorna_view() const;
+    void add_registro(Widget_Padre*);
+    void remove_registro(Widget_Padre*);
 
     //******************************  ITERATORI DISPONIBII PER TEST ******************************//
     // rendo accessibile l'utilizzo degli iteratori del contenitore

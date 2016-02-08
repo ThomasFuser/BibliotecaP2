@@ -3,14 +3,17 @@
 
 #include <QWidget>
 #include <QDesktopWidget>
-#include "../MODEL/database.h"
+
+
+
+class DataBase;                 //in questo modo evito l'inclusione circolare (DataBase e header)
 
 class Widget_Padre : public QWidget
 {
     Q_OBJECT
 public:
     explicit Widget_Padre(DataBase*, QWidget *parent = 0);
-
+    virtual void aggiorna_vista() =0;
 signals:
 
 public slots:
@@ -22,7 +25,6 @@ protected:
 
     DataBase* get_model() const;
 
-    virtual void aggiorna_vista() =0;
     virtual void set_style() =0;
     virtual void costruisci_contenuto() =0;
 

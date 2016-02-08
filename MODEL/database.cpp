@@ -183,7 +183,33 @@ void DataBase::Presta_ricevi(int ID){
 }
 
 
+void DataBase::aggiorna_view() const{
+    std::vector<Widget_Padre*>::const_iterator it=registro.begin();
+    std::vector<Widget_Padre*>::const_iterator it_e=registro.end();
+    for(; it<it_e; ++it) (*it)->aggiorna_vista();
+}
 
+
+void DataBase::add_registro(Widget_Padre* wp){
+    registro.push_back(wp);
+    std::cout<<"REGISTRAZIONE"<<std::endl;
+}
+
+void DataBase::remove_registro(Widget_Padre* wp){
+    std::cout<<"REGISTRAZIONE ELIMINATA"<<std::endl;
+    std::vector<Widget_Padre*>::iterator it=registro.begin();
+    std::vector<Widget_Padre*>::iterator it_e=registro.end();
+    bool trovato=false;
+    for(; it<it_e && !trovato; ++it) (*it)->aggiorna_vista();
+    {
+        if((*it)==wp){
+            trovato=true;
+            registro.erase(it);
+        }
+    }
+
+
+}
 
 
 

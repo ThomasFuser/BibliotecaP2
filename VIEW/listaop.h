@@ -34,10 +34,11 @@ private:
 
     QTableWidget* table;
     QVBoxLayout* layout_table;
-
     int select_opera;
-  //metodi privati
     void set_style();
+    void registrazione_elenco() const;
+    void elimina_registrazione() const;
+
 
 };
 

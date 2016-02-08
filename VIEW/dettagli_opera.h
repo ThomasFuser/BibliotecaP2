@@ -1,3 +1,4 @@
+
 #ifndef DETTAGLI_OPERA_H
 #define DETTAGLI_OPERA_H
 
@@ -40,6 +41,8 @@ public:
     int get_ID()const;
     QPalette* get_paletteLine()const;
     QGridLayout* get_grid()const;
+    void registrazione_elenco() const;
+    void elimina_registrazione() const;
 
 };
 

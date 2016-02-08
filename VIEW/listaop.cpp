@@ -105,6 +105,16 @@ void listaOp::build_Nuova(const container& lista){
         }
 }
 
+void listaOp::registrazione_elenco() const{
+    get_model()->add_registro(const_cast<listaOp*>(this));
+}
+
+void listaOp::elimina_registrazione() const{
+    get_model()->remove_registro(const_cast<listaOp*>(this));
+}
+
+
+
                     ////////////////////////////slot/////////////////////////////
 
 void listaOp::doppio_click(int r){
@@ -121,8 +131,6 @@ listaOp::~listaOp(){
     delete table;
     delete layout_table;
 }
-
-
 
 
 

@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 
 mainWindow::mainWindow(DataBase* db) : Widget_Padre(db) {
-
+    registrazione_elenco();
   //tabella con l'elenco delle opere
     tab=new listaOp(get_model());
 
@@ -67,6 +67,7 @@ void mainWindow::creaLayout(){
 
 
 mainWindow::~mainWindow(){
+    elimina_registrazione();
     delete tab;             delete presta_rientra;
     delete controllerOP;    delete aggiungi_libro;
     delete barra_cerca;     delete aggiungi_rivista;
@@ -147,8 +148,13 @@ void mainWindow::disabilita_bottoni(){
    presta_rientra->setEnabled(false);
 }
 
+void mainWindow::registrazione_elenco() const{
+    get_model()->add_registro(const_cast<mainWindow*>(this));
+}
 
-
+void mainWindow::elimina_registrazione() const{
+    get_model()->remove_registro(const_cast<mainWindow*>(this));
+}
 
 
 

@@ -67,3 +67,10 @@ void Dettagli_opera::aggiorna_vista(){
     prestito->setText(info_Op.get_stato());
     consultabile->setText(info_Op.is_consultabile());
 }
+void Dettagli_opera::registrazione_elenco() const{
+    get_model()->add_registro(const_cast<Dettagli_opera*>(this));
+}
+
+void Dettagli_opera::elimina_registrazione() const{
+    get_model()->remove_registro(const_cast<Dettagli_opera*>(this));
+}
