@@ -9,7 +9,7 @@ class Dettagli_Libro : public Dettagli_opera
 public:
     explicit Dettagli_Libro(int, DataBase*);
     void update_dettagli();
-    ~Dettagli_Libro(){};                                    //RIDEFINIRE IL DISTRUTTORE
+    ~Dettagli_Libro();
 
 private:
 

@@ -2,6 +2,7 @@
 #include <QPalette>
 Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db) : Dettagli_opera(Id,db)
 {
+
     setWindowTitle("Dettagli della rivista");
 
     a=new QLabel("ANNO:");
@@ -34,4 +35,11 @@ void Dettagli_Rivista::set_style(){
 void Dettagli_Rivista::disabilita_modifica(){
       Dettagli_opera::disabilita_modifica();
       anno->setEnabled(false);
+}
+
+Dettagli_Rivista::~Dettagli_Rivista(){
+
+    std::cout<<"distruttore dettagli rivista"<<std::endl;
+    delete a;
+    delete anno;
 }

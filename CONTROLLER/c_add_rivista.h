@@ -11,15 +11,13 @@ class c_add_rivista : public QObject
 {
     Q_OBJECT
 public:
-   // explicit c_add_rivista(DataBase* , inserisci_Rivista* ,mainWindow* , QObject *parent = 0);
-    //explicit c_add_rivista(DataBase* , inserisci_Rivista*,  QObject *parent = 0);
-
     explicit c_add_rivista(DataBase*, inserisci_Rivista*,mainWindow*,QObject* parent =0);
 
 signals:
 
 private slots:
     void add(info);
+    void chiudi_add_rivista();
 
 private:
     DataBase* model;

@@ -1,7 +1,7 @@
 #include "mainwindow.h"
-
+#include<QApplication>
 mainWindow::mainWindow(DataBase* db) : Widget_Padre(db) {
-    registrazione_elenco();
+
   //tabella con l'elenco delle opere
     tab=new listaOp(get_model());
 
@@ -29,7 +29,9 @@ mainWindow::mainWindow(DataBase* db) : Widget_Padre(db) {
     creaLayout();
 
     connect(tab,SIGNAL(selezione(int)),this,SLOT(modifica_campo(int)));
-    connect(tab,SIGNAL(tabella_vuota()),this,SLOT(disabilita()));
+
+    //connect(tab,SIGNAL(disabilita_funzioni()),this,SLOT(disabilita()));  connect(tab,SIGNAL(disabilita_funzioni()),qApp,SLOT(aboutQt()));
+
     connect(rimuovi_opera,SIGNAL(clicked()),this,SLOT(rimuovi_segnale()));
     connect(presta_rientra,SIGNAL(clicked()),this,SLOT(slot_aggiorna_prestito()));
     connect(aggiungi_rivista,SIGNAL(clicked()),this,SLOT(slot_inserisci_rivista()));
@@ -66,14 +68,7 @@ void mainWindow::creaLayout(){
 }
 
 
-mainWindow::~mainWindow(){
-    elimina_registrazione();
-    delete tab;             delete presta_rientra;
-    delete controllerOP;    delete aggiungi_libro;
-    delete barra_cerca;     delete aggiungi_rivista;
-    delete rimuovi_opera;   delete orizzontale;
-    delete bottoni;         delete Prlayout;
-}
+
 
 void mainWindow::modifica_campo(int ID){
     opera_selezionata=ID;
@@ -130,7 +125,11 @@ void mainWindow::slot_aggiorna_prestito(){
         warning.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
         warning.setDefaultButton(QMessageBox::Cancel);
         int ret = warning.exec();
-        if(ret==QMessageBox::Yes) emit aggiorna_prestito(opera_selezionata);
+        if(ret==QMessageBox::Yes)
+        {
+            (get_model())->aggiorna_view();
+            emit aggiorna_prestito(opera_selezionata);
+        }
 }
 
 
@@ -148,13 +147,24 @@ void mainWindow::disabilita_bottoni(){
    presta_rientra->setEnabled(false);
 }
 
-void mainWindow::registrazione_elenco() const{
-    get_model()->add_registro(const_cast<mainWindow*>(this));
+
+mainWindow::~mainWindow(){
+
+
+    std::cout<<"distruttore di main window"<<std::endl;
+    delete bottoni;
+    delete orizzontale;
+    delete Prlayout;
+    delete rimuovi_opera;
+    delete tab;
+    delete presta_rientra;
+    delete controllerOP;
+    delete aggiungi_libro;
+    delete barra_cerca;
+    delete aggiungi_rivista;
+    delete exit;
 }
 
-void mainWindow::elimina_registrazione() const{
-    get_model()->remove_registro(const_cast<mainWindow*>(this));
-}
 
 
 

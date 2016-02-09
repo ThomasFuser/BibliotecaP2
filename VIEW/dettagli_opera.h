@@ -9,14 +9,25 @@
 
 #include"../MODEL/database.h"
 #include "widget_padre.h"
+
+
+
 class Dettagli_opera : public Widget_Padre{
     Q_OBJECT
+
+public:
+    void closeEvent(QCloseEvent*);
+    virtual ~Dettagli_opera();
+signals:
+    void chiudi_dettagli_opera();
+
 protected:
     explicit Dettagli_opera(int, DataBase* );
 
     virtual void set_style();
     virtual void costruisci_contenuto();
     void disabilita_modifica();
+
 
 private:
 
@@ -35,14 +46,15 @@ private:
     QPalette* paletteLine;
     QGridLayout* grid;
 
+    void registra() const;
+    void elimina_registrazione() const;
+
 public:
 
     virtual void aggiorna_vista();
     int get_ID()const;
     QPalette* get_paletteLine()const;
     QGridLayout* get_grid()const;
-    void registrazione_elenco() const;
-    void elimina_registrazione() const;
 
 };
 

@@ -2,6 +2,7 @@
 
 Dettagli_opera::Dettagli_opera(int ID, DataBase* db) : id(ID) , Widget_Padre(db)
 {
+    registra();
     //set lable
        t=new QLabel("TITOLO:");
        p=new QLabel("PRESTITO:");
@@ -67,10 +68,33 @@ void Dettagli_opera::aggiorna_vista(){
     prestito->setText(info_Op.get_stato());
     consultabile->setText(info_Op.is_consultabile());
 }
-void Dettagli_opera::registrazione_elenco() const{
-    get_model()->add_registro(const_cast<Dettagli_opera*>(this));
+
+
+
+
+void Dettagli_opera::closeEvent(QCloseEvent *event){
+    std::cout<<"premuto tasto chiudi  dettagli opera"<<std::endl;
+    emit chiudi_dettagli_opera();
 }
 
-void Dettagli_opera::elimina_registrazione() const{
-    get_model()->remove_registro(const_cast<Dettagli_opera*>(this));
+
+Dettagli_opera::~Dettagli_opera(){
+   elimina_registrazione();
+
+   std::cout<<"distruttore di opera"<<std::endl;
+    delete paletteLine;
+    delete grid;
+
+    delete t;                  //titolo
+    delete p;                  //prestito
+    delete i;                  //id
+    delete c;                  //disponibilità
+
+    delete titolo;
+    delete prestito;
+    delete identificativo;
+    delete consultabile;
 }
+
+void Dettagli_opera::registra() const{ get_model()->add_registro(const_cast<Dettagli_opera*> (this)); }
+void Dettagli_opera::elimina_registrazione() const { get_model()->remove_registro(const_cast<Dettagli_opera*> (this)); }

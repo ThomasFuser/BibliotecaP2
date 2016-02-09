@@ -17,6 +17,7 @@ signals:
 
 public slots:
     void add(info);
+    void chiudi_add_libro();
 
 
 private:

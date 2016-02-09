@@ -9,13 +9,13 @@ container::iteratore DataBase::db_begin(){ return db.begin(); }
 container::iteratore DataBase::db_end(){ return db.end(); }
 
 
-DataBase::DataBase(){ Load();}
+DataBase::DataBase(){ Load(); }
 DataBase::~DataBase(){ Close(); }
 
 void DataBase::Load(){
     //variabili provvisorie
     int tipo=0, anno=0, stato=-1, id=0,max=0;
-    QString autore="Unknown", titolo="Unknown";
+    QString autore="Sconosciuto", titolo="Sconosciuto";
     Opera* op=0;
 
     QFile file(filename);
@@ -156,7 +156,7 @@ Opera* DataBase::Trova_Precisa(int id) const
 }
 
 void DataBase::remove_opera(const int id)
-{  
+{
     Opera* prov=Trova_Precisa(id);
     if(prov!=0) db.remove_item(prov);
     else std::cout<<"nessuna opera da cancellare"<<std::endl;
@@ -167,7 +167,7 @@ info DataBase::get_infoOpera(int ID) const{
     if(!op)
     {
         std::cout<<"opera non trovata"<<std::endl;
-        return info("Sconosciuto", "Sconosciuto", "ID non valido", "Sconosciuto","Sconosciuto");
+        return info("Opera non presente", "Opera non presente", "Opera non presente", "Opera non presente","Opera non presente");
     }
     return info(op->get_infoTot());
 }
@@ -192,39 +192,23 @@ void DataBase::aggiorna_view() const{
 
 void DataBase::add_registro(Widget_Padre* wp){
     registro.push_back(wp);
-    std::cout<<"REGISTRAZIONE"<<std::endl;
 }
 
 void DataBase::remove_registro(Widget_Padre* wp){
-    std::cout<<"REGISTRAZIONE ELIMINATA"<<std::endl;
     std::vector<Widget_Padre*>::iterator it=registro.begin();
     std::vector<Widget_Padre*>::iterator it_e=registro.end();
     bool trovato=false;
-    for(; it<it_e && !trovato; ++it) (*it)->aggiorna_vista();
+    for(; it<it_e && !trovato; ++it)
     {
         if((*it)==wp){
             trovato=true;
             registro.erase(it);
         }
     }
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void DataBase::svuota_contenitore(){
+    std::vector<Widget_Padre*>::iterator it=registro.begin();
+    std::vector<Widget_Padre*>::iterator it_e=registro.end();
+    for(; it<it_e; ++it) registro.pop_back();
+}

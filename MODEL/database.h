@@ -56,7 +56,7 @@ public:
     void aggiorna_view() const;
     void add_registro(Widget_Padre*);
     void remove_registro(Widget_Padre*);
-
+    void svuota_contenitore();
     //******************************  ITERATORI DISPONIBII PER TEST ******************************//
     // rendo accessibile l'utilizzo degli iteratori del contenitore
     // container::iteratore db_iteratore;
@@ -71,26 +71,3 @@ public:
 
 
 #endif // DATABASE_H
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

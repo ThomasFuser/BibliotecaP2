@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QGridLayout>
 #include <QDesktopWidget>
+//#include <QCloseEvent>
 #include "../MODEL/database.h"
 
 class inserisci_Rivista : public QWidget
@@ -16,11 +17,14 @@ class inserisci_Rivista : public QWidget
     Q_OBJECT
 public:
     explicit inserisci_Rivista(QWidget *parent = 0);
+    ~inserisci_Rivista();
+
+    void closeEvent(QCloseEvent*);
 
 signals:
     void submitR(info);
 
-    void prova();
+    void chiudi_aggiungi_rivista();
 
 public slots:
     void slot_submit();

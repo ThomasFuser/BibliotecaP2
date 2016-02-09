@@ -6,10 +6,17 @@ c_add_libro::c_add_libro(DataBase* db,inserisci_Libro* v ,mainWindow* mv, QObjec
                                                                                            QObject(parent)
 {
     connect(view,SIGNAL(submitL(info)),this,SLOT(add(info)));
+    connect(view,SIGNAL(chiudi_aggiungi_Libro()),this,SLOT(chiudi_add_libro()));
 }
 
 
 void c_add_libro::add(info op){
     model->add_Libro(op);
     mainW->aggiorna_vista();
+}
+
+
+void c_add_libro::chiudi_add_libro(){
+    std::cout<<"distruttore del controller di libro / distruttore del controller basta standard"<<std::endl;
+    delete view;
 }

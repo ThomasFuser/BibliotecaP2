@@ -17,10 +17,10 @@ class inserisci_Libro : public QWidget
     Q_OBJECT
 public:
     explicit inserisci_Libro(QWidget *parent = 0);
-
+    void closeEvent(QCloseEvent*);
 signals:
     void submitL(info);
-   // void prova();
+    void chiudi_aggiungi_Libro();
 public slots:
     void slot_submit();
 private:
@@ -28,7 +28,7 @@ private:
     QPushButton* submit;
 
     QLabel* t;     //titolo
-    QLabel* a;     //anno
+    QLabel* a;     //autore
 
     QLineEdit* titolo;
     QLineEdit* autore;

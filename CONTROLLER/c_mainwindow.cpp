@@ -38,13 +38,8 @@ void C_mainWindow::aggiorna_prestitoDB(int ID){
             warning.setDefaultButton(QMessageBox::Cancel);
             int ret = warning.exec();
     }
-    //emit aggiorna_dettagli();
 
 }
-
-
-
-
 
 
 void C_mainWindow::inserisci_rivistaDB(){

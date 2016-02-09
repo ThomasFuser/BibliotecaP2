@@ -8,8 +8,7 @@ class Dettagli_Rivista : public Dettagli_opera
 public:
     explicit Dettagli_Rivista(int, DataBase*);
     void update_dettagli();
-    ~Dettagli_Rivista(){};                                    //RIDEFINIRE IL DISTRUTTORE
-
+    ~Dettagli_Rivista();
 private:
 
     QLabel* a;     //anno

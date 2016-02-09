@@ -1,6 +1,7 @@
 #include "inserisci_rivista.h"
 
 inserisci_Rivista::inserisci_Rivista(QWidget *parent) : QWidget(parent){
+
     submit=new QPushButton("CONFERMA");
 
     t=new QLabel("TITOLO:");
@@ -75,4 +76,21 @@ void inserisci_Rivista::centra_finestra(){
        int y=static_cast<int>((screenHeight-height)/2);
 
        move(x,y);
+}
+
+inserisci_Rivista::~inserisci_Rivista(){
+    delete grid;
+    delete layout;
+
+    delete t;
+    delete a;
+
+    delete titolo;
+    delete anno;
+}
+
+void inserisci_Rivista::closeEvent(QCloseEvent *event){
+    std::cout<<"premuto tasto chiudi rivista"<<std::endl;
+    emit chiudi_aggiungi_rivista();
+    //event->accept();
 }

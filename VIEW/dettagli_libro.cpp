@@ -2,6 +2,7 @@
 #include <QPalette>
 Dettagli_Libro::Dettagli_Libro(int Id, DataBase* db) : Dettagli_opera(Id,db)
 {
+
     setWindowTitle("Dettagli del libro");
 
     a=new QLabel("AURORE:");
@@ -18,8 +19,6 @@ Dettagli_Libro::Dettagli_Libro(int Id, DataBase* db) : Dettagli_opera(Id,db)
     costruisci_contenuto();
 }
 
-
-
 void Dettagli_Libro::costruisci_contenuto(){
      Dettagli_opera::costruisci_contenuto();
      info iLibro=(get_model())->get_infoOpera(get_ID());
@@ -35,4 +34,10 @@ void Dettagli_Libro::set_style(){
 void Dettagli_Libro::disabilita_modifica(){
       Dettagli_opera::disabilita_modifica();
       autore->setEnabled(false);     
+}
+
+Dettagli_Libro::~Dettagli_Libro(){
+    std::cout<<"distruttore di libro"<<std::endl;
+    delete a;     //autore
+    delete autore;
 }

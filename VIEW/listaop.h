@@ -20,11 +20,17 @@ public:
     void aggiorna_vista();          //metodo che popola la tabella
     void costruisci_contenuto();
     void build_Nuova(const container&);
+    void abilita_doppio_click();
+    void disabilita_doppio_click();
     ~listaOp();
 signals:
    void richiesta_info(const int);
    void selezione(const int);
    void tabella_vuota();
+
+   void disabilita_funzioni();
+
+   void abilita_funzioni();
 private slots:
    void doppio_click(int);        //permette di emettere il segnale richiesta_info l'id selezionato
    void click_singolo(int);       //permette di far emettere il segnale selezione con l'id selezionato
@@ -36,8 +42,7 @@ private:
     QVBoxLayout* layout_table;
     int select_opera;
     void set_style();
-    void registrazione_elenco() const;
-    void elimina_registrazione() const;
+
 
 
 };

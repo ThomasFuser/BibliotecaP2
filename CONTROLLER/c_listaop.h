@@ -13,11 +13,11 @@ class C_listaop : public QObject
     Q_OBJECT
 public:
     explicit C_listaop(DataBase*, listaOp*, QObject *parent = 0);
-    ~C_listaop();
 
 public slots:
     void visualizza_info(int);          //creazione della vista interessata
-
+    void chiudi_dettagli_libro();
+    void chiudi_dettagli_rivista();
 private:
     DataBase* model;
     listaOp* view;
