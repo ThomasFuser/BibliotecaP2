@@ -6,7 +6,6 @@ C_listaop::C_listaop(DataBase* db, listaOp* v,QObject *parent) : model(db), view
 
 }
 
-
 void C_listaop::visualizza_info(int id){
 
     view->disabilita_doppio_click();

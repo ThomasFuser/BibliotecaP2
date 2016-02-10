@@ -13,12 +13,9 @@ class c_add_libro : public QObject
 public:
     explicit c_add_libro(DataBase* , inserisci_Libro* ,mainWindow* , QObject *parent = 0);
 
-signals:
-
 public slots:
     void add(info);
     void chiudi_add_libro();
-
 
 private:
     DataBase* model;

@@ -38,8 +38,6 @@ void Dettagli_Rivista::disabilita_modifica(){
 }
 
 Dettagli_Rivista::~Dettagli_Rivista(){
-
-    std::cout<<"distruttore dettagli rivista"<<std::endl;
     delete a;
     delete anno;
 }

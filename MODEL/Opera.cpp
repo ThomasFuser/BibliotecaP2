@@ -4,7 +4,7 @@
 //inizializzazione del massimo ID
 int Opera::maxId=0;
 
-//costruttore
+
 Opera::Opera(QString tit,bool s): titolo(tit), statoP(s)
 {
   //setta l'ID univoco per la nuova opera creata
@@ -12,18 +12,14 @@ Opera::Opera(QString tit,bool s): titolo(tit), statoP(s)
     ID=maxId;
 }
 
-
-
-//*****************funzioni pubbliche*****************//
+Opera::~Opera(){}
 
 int Opera::Get_Id() const{ return ID; }
-int Opera::Get_Max() const{ return maxId;}
+int Opera::Get_Max() const{ return maxId; }
 void Opera::Set_Id(const int n){ ID=n; }
 void Opera::Set_Max(const int n){ maxId=n; }
 
-QString Opera::GetTitolo() const{
-    return titolo;
-}
+QString Opera::GetTitolo() const{ return titolo; }
 
 bool Opera::Presente()const{ return statoP; }
 

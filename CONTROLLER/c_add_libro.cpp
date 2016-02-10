@@ -15,8 +15,4 @@ void c_add_libro::add(info op){
     mainW->aggiorna_vista();
 }
 
-
-void c_add_libro::chiudi_add_libro(){
-    std::cout<<"distruttore del controller di libro / distruttore del controller basta standard"<<std::endl;
-    delete view;
-}
+void c_add_libro::chiudi_add_libro(){ delete view; }

@@ -1,19 +1,8 @@
 #include"Libro.h"
 
-
-
 Libro::Libro(QString tit, QString al, bool stat): Opera(tit,stat), autore(al){}
 
-
-
-//*****************funzioni pubbliche*****************//
-
 QString Libro::GetAutore() const{ return autore; }
-
-
-
-
-//concretizzazioni dei metodi virtuali puri della classe base Opera
 
 bool Libro::disponibile() const {
     if(Presente()) return true;

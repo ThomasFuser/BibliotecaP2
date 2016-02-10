@@ -12,8 +12,7 @@ public:
     ~Dettagli_Libro();
 
 private:
-
-    QLabel* a;     //autore
+    QLabel* a;                  //autore
 
     QLineEdit* autore;
 

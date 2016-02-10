@@ -1,9 +1,7 @@
 #include"database.h"
 
-//QString DataBase::filename="DataBase.xml";
 QString DataBase::filename="../BibliotecaP2/DataBase.xml";
 
-//iteratori
 
 container::iteratore DataBase::db_begin(){ return db.begin(); }
 container::iteratore DataBase::db_end(){ return db.end(); }
@@ -11,6 +9,7 @@ container::iteratore DataBase::db_end(){ return db.end(); }
 
 DataBase::DataBase(){ Load(); }
 DataBase::~DataBase(){ Close(); }
+
 
 void DataBase::Load(){
     //variabili provvisorie
@@ -60,7 +59,7 @@ void DataBase::Load(){
              {
                  if(tipo==1) op= new Rivista(titolo,anno,stato);             //costruisco una rivista
                  else op=new Libro(titolo,autore,stato);                     //costruisco un libro
-                 //sistemo i valori che il costruttore di Opera mi "sballa"
+                 //sistemo i valori che il costruttore di Opera modifica
                  op->Set_Id(id);
                  op->Set_Max(max);
                  db.add_item(op);                                      //aggiungo l'opera nel contenitore
@@ -98,16 +97,9 @@ void DataBase::Close(){
          file.close();
 }
 
-//metodi pubblici database
+
 bool DataBase::vuoto() const{ return db.empty(); }
 
-//PRE=(opera* op può essere anche =0. L'opera può anche essere presente nella biblioteca)
-void DataBase::Add_Opera(Opera* op)
-{
-    if(!op) std::cout<<"impossibile aggiungere l'opera"<<std::endl;
-    else db.add_item(op);
-}
-//POST=(inserisce nel contenitore l'opera <=> è una opera valida quindi op!=0)
 
 void DataBase::add_Rivista(info op){
     int anno=op.get_dettaglio().toInt();
@@ -115,14 +107,13 @@ void DataBase::add_Rivista(info op){
     db.add_item(r);
 }
 
+
 void DataBase::add_Libro(info op){
     Libro* l=new Libro(op.get_titolo(),op.get_dettaglio(),1);
     db.add_item(l);
 }
 
 
-
-//cerca un'opera che abbia tra i campi dati la stringa text e ritorna un containitore di puntatori
 container DataBase::cerca_opera(const QString& text) const
 {
     container cont;
@@ -130,9 +121,6 @@ container DataBase::cerca_opera(const QString& text) const
         if(db[it]->ricerca_campi(text)) cont.add_item(db[it]);
     return cont;
 }
-
-
-
 
 
 Opera* DataBase::Trova_Precisa(int id) const
@@ -194,6 +182,7 @@ void DataBase::add_registro(Widget_Padre* wp){
     registro.push_back(wp);
 }
 
+
 void DataBase::remove_registro(Widget_Padre* wp){
     std::vector<Widget_Padre*>::iterator it=registro.begin();
     std::vector<Widget_Padre*>::iterator it_e=registro.end();
@@ -205,10 +194,4 @@ void DataBase::remove_registro(Widget_Padre* wp){
             registro.erase(it);
         }
     }
-}
-
-void DataBase::svuota_contenitore(){
-    std::vector<Widget_Padre*>::iterator it=registro.begin();
-    std::vector<Widget_Padre*>::iterator it_e=registro.end();
-    for(; it<it_e; ++it) registro.pop_back();
 }

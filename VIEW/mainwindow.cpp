@@ -1,9 +1,9 @@
 #include "mainwindow.h"
 #include<QApplication>
+#include<QToolTip>
 mainWindow::mainWindow(DataBase* db) : Widget_Padre(db) {
 
-  //tabella con l'elenco delle opere
-    tab=new listaOp(get_model());
+    tab=new listaOp(get_model());   //tabella con l'elenco delle opere
 
     controllerOP=new C_listaop(get_model(),tab);
 
@@ -14,6 +14,7 @@ mainWindow::mainWindow(DataBase* db) : Widget_Padre(db) {
     aggiungi_libro=new QPushButton("AGGIUNGI LIBRO");
     rimuovi_opera=new QPushButton("RIMUOVI OPERA");
     disabilita_bottoni();
+
   //barra della ricerca
     barra_cerca=new QLineEdit();
 
@@ -22,27 +23,29 @@ mainWindow::mainWindow(DataBase* db) : Widget_Padre(db) {
     Prlayout=new QVBoxLayout();
     bottoni=new QVBoxLayout();
 
-
     centra_finestra();
-    costruisci_contenuto();
-
+    costruisci_contenuto();   
     creaLayout();
+    set_style();
 
     connect(tab,SIGNAL(selezione(int)),this,SLOT(modifica_campo(int)));
-
-    //connect(tab,SIGNAL(disabilita_funzioni()),this,SLOT(disabilita()));  connect(tab,SIGNAL(disabilita_funzioni()),qApp,SLOT(aboutQt()));
-
     connect(rimuovi_opera,SIGNAL(clicked()),this,SLOT(rimuovi_segnale()));
     connect(presta_rientra,SIGNAL(clicked()),this,SLOT(slot_aggiorna_prestito()));
     connect(aggiungi_rivista,SIGNAL(clicked()),this,SLOT(slot_inserisci_rivista()));
     connect(aggiungi_libro,SIGNAL(clicked()),this,SLOT(slot_inserisci_libro()));
     connect(exit,SIGNAL(clicked()),qApp,SLOT(quit()));
-  // connessione della ricerca
     connect(barra_cerca,SIGNAL(textEdited(QString)),this,SLOT(testo_editato(QString)));
 
 }
+
 void mainWindow::set_style(){
-    barra_cerca->setStatusTip("Ricerca per: Titolo, Autore, Anno di pubblicazione, ID");
+    barra_cerca->setPlaceholderText("Ricerca per: Titolo, Autore, Anno di uscita, ID");
+    barra_cerca->setToolTip("Eliminare il contenuto della barra per tornare all'elenco completo delle opere");
+    tab->setToolTip("Doppio click per visualizzare i dettagli dell'opera");
+    presta_rientra->setToolTip("Funzione disponibile se si seleziona un' opera con un click");
+    barra_cerca->setToolTipDuration(5000);
+    barra_cerca->setToolTipDuration(5000);
+    barra_cerca->setToolTipDuration(5000);
 
 }
 
@@ -66,9 +69,6 @@ void mainWindow::creaLayout(){
     setLayout(Prlayout);
 
 }
-
-
-
 
 void mainWindow::modifica_campo(int ID){
     opera_selezionata=ID;
@@ -148,10 +148,10 @@ void mainWindow::disabilita_bottoni(){
 }
 
 
+void mainWindow::closeEvent(QCloseEvent *event){ emit chiudi_app(); }
+
+
 mainWindow::~mainWindow(){
-
-
-    std::cout<<"distruttore di main window"<<std::endl;
     delete bottoni;
     delete orizzontale;
     delete Prlayout;

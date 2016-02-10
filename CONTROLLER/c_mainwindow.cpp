@@ -8,6 +8,9 @@ C_mainWindow::C_mainWindow(DataBase* db,mainWindow* v, QObject *parent) :model(d
 
    //connessione che permette la ricerca di un'opera o di una serie di opere
     connect(view,SIGNAL(cerca_opera(QString)),this,SLOT(cerca_operaDB(QString)));
+
+    //chiudi
+    connect(view,SIGNAL(chiudi_app()),qApp,SLOT(quit()));
 }
 
 void C_mainWindow::cerca_operaDB(QString text){
@@ -17,8 +20,6 @@ void C_mainWindow::cerca_operaDB(QString text){
     }else view->aggiorna_vista();
 
 }
-
-
 
 void C_mainWindow::rimuovi_operaDB(int ID){
     model->remove_opera(ID);
@@ -54,4 +55,3 @@ void C_mainWindow::inserisci_libroDB(){
     c_add_libro* controller=new c_add_libro(model,inserisci,view);
     inserisci->show();
 }
-

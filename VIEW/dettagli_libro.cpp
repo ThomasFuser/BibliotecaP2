@@ -37,7 +37,6 @@ void Dettagli_Libro::disabilita_modifica(){
 }
 
 Dettagli_Libro::~Dettagli_Libro(){
-    std::cout<<"distruttore di libro"<<std::endl;
     delete a;     //autore
     delete autore;
 }

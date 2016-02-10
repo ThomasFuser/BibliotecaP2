@@ -18,17 +18,21 @@ class inserisci_Libro : public QWidget
 public:
     explicit inserisci_Libro(QWidget *parent = 0);
     void closeEvent(QCloseEvent*);
+    ~inserisci_Libro();
+
 signals:
     void submitL(info);
     void chiudi_aggiungi_Libro();
+
 public slots:
     void slot_submit();
+
 private:
 
     QPushButton* submit;
 
-    QLabel* t;     //titolo
-    QLabel* a;     //autore
+    QLabel* t;              //titolo
+    QLabel* a;              //autore
 
     QLineEdit* titolo;
     QLineEdit* autore;
@@ -39,8 +43,6 @@ private:
     void build_Layout();
     void pulisci_Campi();
     void centra_finestra();
-
-
 
 };
 

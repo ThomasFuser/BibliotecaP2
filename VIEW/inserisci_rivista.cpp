@@ -79,6 +79,7 @@ void inserisci_Rivista::centra_finestra(){
 }
 
 inserisci_Rivista::~inserisci_Rivista(){
+
     delete grid;
     delete layout;
 
@@ -89,8 +90,6 @@ inserisci_Rivista::~inserisci_Rivista(){
     delete anno;
 }
 
-void inserisci_Rivista::closeEvent(QCloseEvent *event){
-    std::cout<<"premuto tasto chiudi rivista"<<std::endl;
-    emit chiudi_aggiungi_rivista();
-    //event->accept();
-}
+void inserisci_Rivista::closeEvent(QCloseEvent *event){ emit chiudi_aggiungi_rivista(); }
+
+

@@ -11,7 +11,7 @@ public:
     ~Dettagli_Rivista();
 private:
 
-    QLabel* a;     //anno
+    QLabel* a;                      //anno
 
     QLineEdit* anno;
 

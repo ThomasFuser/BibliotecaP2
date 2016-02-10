@@ -17,14 +17,12 @@ container& container::operator=(const container& cont)
 }
 
 
-                                //metodi pubblici di utilità per l'utente
-bool container::empty() const{ return first==0; }
 
+bool container::empty() const{ return first==0; }
 
 void container::add_item(Opera* o) { first=new nodo(o,first); }
 
-
-void container::remove_item(Opera* o)       //condivisione controllata della memoria
+void container::remove_item(Opera* o)
 {    
     smartp p=first, prec, q;
     smartp original=first;
@@ -43,7 +41,7 @@ void container::remove_item(Opera* o)       //condivisione controllata della mem
 }
 
 
-//********  metodi di contenitore che usano iteratori */
+//metodi di contenitore che usano iteratori
 
 container::iteratore container::begin() const
 {
@@ -105,9 +103,7 @@ bool container::smartp::operator==(const smartp& sm)const {
     return (punt==sm.punt);
 }
 
-
 bool container::smartp::operator!=(const smartp& sm)const { return (sm.punt!=punt); }
-
 
 container::nodo* container::smartp::operator->()const { return punt; }
 

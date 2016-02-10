@@ -6,31 +6,22 @@
 
 
 
-class DataBase;                 //in questo modo evito l'inclusione circolare (DataBase e header)
+class DataBase;
 
 class Widget_Padre : public QWidget
 {
     Q_OBJECT
 public:
     explicit Widget_Padre(DataBase*, QWidget *parent = 0);
-    virtual void aggiorna_vista() =0;
-signals:
+    virtual ~Widget_Padre();
 
-public slots:
-
+    DataBase* get_model() const;                //ritorna un puntatore al database
+    virtual void set_style() =0;                //imposta lo stile nelle view
+    virtual void aggiorna_vista() =0;           //aggionrnamento del contenuto di ogni vista
+    virtual void costruisci_contenuto() =0;     //costruisce il contenuto delle view
+    void centra_finestra();                     //permette di centrare la finestra al momento della sua creazione
 private:
     DataBase* model;
-
-protected:
-
-    DataBase* get_model() const;
-
-    virtual void set_style() =0;
-    virtual void costruisci_contenuto() =0;
-
-    virtual ~Widget_Padre(){};
-    void centra_finestra();
-
 };
 
 #endif // WIDGET_PADRE_H

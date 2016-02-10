@@ -61,7 +61,6 @@ void inserisci_Libro::pulisci_Campi(){
     autore->clear();
 }
 
-
 void inserisci_Libro::centra_finestra(){
        int width = frameGeometry().width();
        int height = frameGeometry().height();
@@ -78,7 +77,18 @@ void inserisci_Libro::centra_finestra(){
 }
 
 void inserisci_Libro::closeEvent(QCloseEvent *event){
-    std::cout<<"premuto tasto chiudi Libro"<<std::endl;
     emit chiudi_aggiungi_Libro();
-    //event->accept();
 }
+
+inserisci_Libro::~inserisci_Libro(){
+     delete grid;
+     delete layout;
+
+     delete submit;
+
+     delete t;
+     delete a;
+
+     delete titolo;
+     delete autore;
+ }

@@ -1,9 +1,6 @@
 #include"listaop.h"
 
 listaOp::listaOp(DataBase* db): Widget_Padre(db){
-
-
-
     table=new QTableWidget();
 
   //inserisco la tabella nel layout del widget
@@ -14,7 +11,6 @@ listaOp::listaOp(DataBase* db): Widget_Padre(db){
 
     costruisci_contenuto();
 
-  //segnali
     connect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));     //doppio click
     connect(table,SIGNAL(cellClicked(int,int)),this,SLOT(click_singolo(int)));          //click singolo
 
@@ -72,8 +68,9 @@ void listaOp::set_style(){
     QStringList tabHeader;
     tabHeader<<"ID"<<"Titolo"<<"Tipologia";
     table->setHorizontalHeaderLabels(tabHeader);
+
     //comportamento nel momento in cui si seleziona un item
-    table->setSelectionMode(QAbstractItemView::SingleSelection);    // modifica disabilitata
+    table->setSelectionMode(QAbstractItemView::SingleSelection);
     table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     table->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
@@ -109,14 +106,9 @@ void listaOp::build_Nuova(const container& lista){
 }
 
 
-                    ////////////////////////////slot/////////////////////////////
-
 void listaOp::doppio_click(int r){
     select_opera=table->item(r,0)->text().toInt();
     emit richiesta_info(select_opera);
-
-
-    //table->setSelectionMode(QAbstractItemView::NoSelection);
 }
 
 void listaOp::click_singolo(int r){
@@ -125,7 +117,6 @@ void listaOp::click_singolo(int r){
 }
 
 listaOp::~listaOp(){
-    std::cout<<"Distruttore di listaOp"<<std::endl;
     delete table;
     delete layout_table;
 }
@@ -138,7 +129,6 @@ void listaOp::abilita_doppio_click(){
 void listaOp::disabilita_doppio_click(){
     disconnect(table,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(doppio_click(int)));
     emit disabilita_funzioni();
-    std::cout<<"segnale emesso"<<std::endl;
 }
 
 

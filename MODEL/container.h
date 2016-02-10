@@ -8,9 +8,6 @@
 
 #include "Opera.h"
 
-
-
-
 class container{
     friend class iteratore;
 private:
@@ -21,7 +18,6 @@ private:
             smartp(nodo* =0);							//costruttore 0~1 parametro + convertitore implicito nodo*->smartp
             ~smartp();									//distruttore
             smartp(const smartp&);						//costruttore di copia
-
             smartp& operator=(const smartp&);			//operatore di assegnazione
             bool operator==(const smartp&)const;		//operatore di uguaglianza
             bool operator!=(const smartp&)const;		//operatore di disuguaglianza
@@ -33,7 +29,7 @@ private:
 
     class nodo{
     public:
-        nodo(Opera*, const smartp& =0); //costruttore 0~2 arg
+        nodo(Opera*, const smartp& =0);
 
         Opera* op;
         smartp next;
@@ -57,18 +53,17 @@ public:
     };
 
     container();                                         //costruttore contenitore vuoto
-        //triade gestione memoria profonda
+
     container& operator=(const container&);              //assegnazione con smartp
-    //~container();                                      //distruttore profondo del contenitore
+
     container(const container&);                         //costruzione di copia
 
-            //metodi pubblici container
+    //metodi pubblici container
     bool empty() const;                                  // 1 <=> contenitore vuoto
     void add_item(Opera*);                               //aggiunta opera in coda alla lista
     //PRE=( Vc=vecchio contenitore, Nc=nuovo contenitore. L'item da eliminare è presente in  Vc. "o" è puntatore all'item)
     void remove_item(Opera*);                            //rimuovi una opera dalla lista
     //POST=(Nc=Vc-o)
-
 
     //metodi legati all'iteratore
     iteratore begin() const;

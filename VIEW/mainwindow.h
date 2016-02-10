@@ -26,8 +26,10 @@ public:
     virtual void costruisci_contenuto();
     void costruisci_Tabella(const container&);
     virtual void set_style();
+    void closeEvent(QCloseEvent*);
     ~mainWindow();
 signals:
+    void chiudi_app();
     void rimuovi(int);
     void aggiorna_prestito(int);
     void show_inserisci_rivista();
@@ -39,9 +41,8 @@ private slots:
     void slot_aggiorna_prestito();
     void slot_inserisci_rivista();
     void slot_inserisci_libro();
-    void modifica_campo(int);     //slot che consente di rimuovere l'opera selezionata
-    void disabilita();              //disabilita alcune funzioni quando non si è selezionato alcun item
-    //void disabilita_funzioni();    //disabilita alcune funzioni quando è aperta una finestra "dettagli"
+    void modifica_campo(int);
+    void disabilita();
     void testo_editato(QString);
 private:
     DataBase* model;
@@ -65,8 +66,6 @@ private:
     void creaLayout();
     void abilita_bottoni();
     void disabilita_bottoni();
-
-
 };
 
 #endif // MAINWINDOW_H
