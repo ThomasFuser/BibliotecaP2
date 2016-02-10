@@ -19,7 +19,7 @@ private slots:
     void aggiorna_prestitoDB(int);
     void inserisci_rivistaDB();
     void inserisci_libroDB();
-    void cerca_operaDB(QString);
+    void cerca_operaDB(const QString&);
 
 private:
     DataBase* model;

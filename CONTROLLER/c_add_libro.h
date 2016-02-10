@@ -14,7 +14,7 @@ public:
     explicit c_add_libro(DataBase* , inserisci_Libro* ,mainWindow* , QObject *parent = 0);
 
 public slots:
-    void add(info);
+    void add(const info&);
     void chiudi_add_libro();
 
 private:

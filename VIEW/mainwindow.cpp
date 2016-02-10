@@ -34,7 +34,7 @@ mainWindow::mainWindow(DataBase* db) : Widget_Padre(db) {
     connect(aggiungi_rivista,SIGNAL(clicked()),this,SLOT(slot_inserisci_rivista()));
     connect(aggiungi_libro,SIGNAL(clicked()),this,SLOT(slot_inserisci_libro()));
     connect(exit,SIGNAL(clicked()),qApp,SLOT(quit()));
-    connect(barra_cerca,SIGNAL(textEdited(QString)),this,SLOT(testo_editato(QString)));
+    connect(barra_cerca,SIGNAL(textEdited(QString)),this,SLOT(testo_editato(const QString& )));
 
 }
 
@@ -93,7 +93,7 @@ void mainWindow::rimuovi_segnale(){
 }
 
 
-void mainWindow::testo_editato(QString text){ emit cerca_opera(text); }
+void mainWindow::testo_editato(const QString& text){ emit cerca_opera(text); }
 
 void mainWindow::slot_inserisci_rivista(){
     emit show_inserisci_rivista();

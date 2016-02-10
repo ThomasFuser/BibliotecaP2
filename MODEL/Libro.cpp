@@ -1,6 +1,6 @@
 #include"Libro.h"
 
-Libro::Libro(QString tit, QString al, bool stat): Opera(tit,stat), autore(al){}
+Libro::Libro(const QString& tit, const QString& al, bool stat): Opera(tit,stat), autore(al){}
 
 QString Libro::GetAutore() const{ return autore; }
 

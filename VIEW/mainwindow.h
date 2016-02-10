@@ -43,7 +43,7 @@ private slots:
     void slot_inserisci_libro();
     void modifica_campo(int);
     void disabilita();
-    void testo_editato(QString);
+    void testo_editato(const QString&);
 private:
     DataBase* model;
 

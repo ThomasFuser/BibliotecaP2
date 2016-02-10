@@ -14,7 +14,7 @@ public:
     explicit c_add_rivista(DataBase*, inserisci_Rivista*,mainWindow*,QObject* parent =0);
 
 private slots:
-    void add(info);
+    void add(const info&);
     void chiudi_add_rivista();
 
 private:

@@ -10,7 +10,7 @@ private:
     int annoUscita;
     static int maxAnni;
 public:
-    Rivista(QString, int, bool=0);
+    Rivista(const QString& , int, bool=0);
     int GetMaxAnni() const;
     int GetAnnoUscita() const;
     virtual bool disponibile() const;

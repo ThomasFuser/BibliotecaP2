@@ -13,7 +13,7 @@ C_mainWindow::C_mainWindow(DataBase* db,mainWindow* v, QObject *parent) :model(d
     connect(view,SIGNAL(chiudi_app()),qApp,SLOT(quit()));
 }
 
-void C_mainWindow::cerca_operaDB(QString text){
+void C_mainWindow::cerca_operaDB(const QString& text){
     container lista=model->cerca_opera(text);
     if(!(lista.empty())){
         view->costruisci_Tabella(lista);

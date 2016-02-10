@@ -51,7 +51,6 @@ void inserisci_Rivista::slot_submit(){
             warning.setDefaultButton(QMessageBox::Cancel);
             int ret = warning.exec();
             if(ret==QMessageBox::Yes) {
-                std::cout<<"invio segnale submitR"<<std::endl;
                 info op(titolo->text(),"","",anno->text());
                 emit submitR(op);
                 pulisci_Campi();

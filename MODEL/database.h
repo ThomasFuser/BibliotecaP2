@@ -33,8 +33,8 @@ public:
     bool vuoto() const;                                 //ritorna true <=> container è vuoto altrimenti ritorna false
     void remove_opera(const int);                       //elimina una opera
     container cerca_opera(const QString&) const;        //cerca una opera cercando in tutti i campi di essa (ricerca polimorfa). la ricerca è caseInsensitive
-    void add_Rivista(info);                             //aggiunge una rivista
-    void add_Libro(info);                               //aggiunge una libro
+    void add_Rivista(const info&);                             //aggiunge una rivista
+    void add_Libro(const info&);                               //aggiunge una libro
     info get_infoOpera(int) const;                      //ritorna un oggetto "info" contenente tutte le informazioni riguardanti un' opera con un preciso ID. se l'opera non è oresente la funzione ritorna un oggetto info con tutti i suoi campi contenenti "sconosciuto" mentre nel campo corrispondente ad ID: ID non valido
     Opera* Trova_Precisa(int) const;                    //ricerca una precisa opera identificata dal suo puntatore
     void Presta_ricevi(int);

@@ -1,67 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <max>23</max>
-    <opera>
-        <tipo>1</tipo>
-        <id>19</id>
-        <stato>1</stato>
-        <titolo>Scienze</titolo>
-        <anno>1995</anno>
-    </opera>
+    <max>30</max>
     <opera>
         <tipo>2</tipo>
-        <id>18</id>
-        <stato>0</stato>
-        <titolo>Il Dio del deserto</titolo>
-        <autore>Wilbur Smith</autore>
-    </opera>
-    <opera>
-        <tipo>2</tipo>
-        <id>17</id>
+        <id>16</id>
         <stato>1</stato>
-        <titolo>Alle fonti del Nilo</titolo>
-        <autore>Wilbur Smith</autore>
-    </opera>
-    <opera>
-        <tipo>1</tipo>
-        <id>13</id>
-        <stato>1</stato>
-        <titolo>Wired</titolo>
-        <anno>2016</anno>
-    </opera>
-    <opera>
-        <tipo>2</tipo>
-        <id>4</id>
-        <stato>1</stato>
-        <titolo>Dracula</titolo>
-        <autore>Bram Stoker</autore>
-    </opera>
-    <opera>
-        <tipo>2</tipo>
-        <id>5</id>
-        <stato>1</stato>
-        <titolo>Il gioiello delle sette stelle</titolo>
-        <autore>Bram Stoker</autore>
-    </opera>
-    <opera>
-        <tipo>2</tipo>
-        <id>9</id>
-        <stato>1</stato>
-        <titolo>1Q84</titolo>
-        <autore>Haruki Murakami</autore>
-    </opera>
-    <opera>
-        <tipo>2</tipo>
-        <id>12</id>
-        <stato>1</stato>
-        <titolo>Il Dio del fiume</titolo>
-        <autore>Wilbur Smith</autore>
-    </opera>
-    <opera>
-        <tipo>2</tipo>
-        <id>14</id>
-        <stato>0</stato>
-        <titolo>Uomini che odiano le donne</titolo>
+        <titolo>La regina dei castelli di carta</titolo>
         <autore>Stieg Larsson</autore>
     </opera>
     <opera>
@@ -73,9 +17,72 @@
     </opera>
     <opera>
         <tipo>2</tipo>
-        <id>16</id>
-        <stato>1</stato>
-        <titolo>La regina dei castelli di carta</titolo>
+        <id>14</id>
+        <stato>0</stato>
+        <titolo>Uomini che odiano le donne</titolo>
         <autore>Stieg Larsson</autore>
+    </opera>
+    <opera>
+        <tipo>2</tipo>
+        <id>12</id>
+        <stato>1</stato>
+        <titolo>Il Dio del fiume</titolo>
+        <autore>Wilbur Smith</autore>
+    </opera>
+    <opera>
+        <tipo>2</tipo>
+        <id>9</id>
+        <stato>1</stato>
+        <titolo>1Q84</titolo>
+        <autore>Haruki Murakami</autore>
+    </opera>
+    <opera>
+        <tipo>2</tipo>
+        <id>5</id>
+        <stato>1</stato>
+        <titolo>Il gioiello delle sette stelle</titolo>
+        <autore>Bram Stoker</autore>
+    </opera>
+    <opera>
+        <tipo>2</tipo>
+        <id>4</id>
+        <stato>1</stato>
+        <titolo>Dracula</titolo>
+        <autore>Bram Stoker</autore>
+    </opera>
+    <opera>
+        <tipo>1</tipo>
+        <id>13</id>
+        <stato>1</stato>
+        <titolo>Wired</titolo>
+        <anno>2016</anno>
+    </opera>
+    <opera>
+        <tipo>2</tipo>
+        <id>17</id>
+        <stato>1</stato>
+        <titolo>Alle fonti del Nilo</titolo>
+        <autore>Wilbur Smith</autore>
+    </opera>
+    <opera>
+        <tipo>2</tipo>
+        <id>18</id>
+        <stato>0</stato>
+        <titolo>Il Dio del deserto</titolo>
+        <autore>Wilbur Smith</autore>
+    </opera>
+    <opera>
+        <tipo>1</tipo>
+        <id>19</id>
+        <stato>1</stato>
+        <titolo>Scienze</titolo>
+        <anno>1995</anno>
+    </opera>
+    <opera>
+        <tipo>1</tipo>
+        <id>29</id>
+        <stato>0</stato>
+        <titolo>Focus</titolo>
+        <anno>2015</anno>
     </opera>
 </database>

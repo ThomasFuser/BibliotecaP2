@@ -4,7 +4,7 @@
 int  Rivista::maxAnni=20;
 
 //costruttore
-Rivista::Rivista(QString tit, int anno, bool stato): Opera(tit,stato) , annoUscita(anno)
+Rivista::Rivista(const QString& tit, int anno, bool stato): Opera(tit,stato) , annoUscita(anno)
 {
     if(anno<1000)
     {

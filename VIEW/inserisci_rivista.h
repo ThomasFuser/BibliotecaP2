@@ -21,7 +21,7 @@ public:
     ~inserisci_Rivista();
 
 signals:
-    void submitR(info);
+    void submitR(const info& );
     void chiudi_aggiungi_rivista();
 
 public slots:

@@ -5,7 +5,7 @@
 int Opera::maxId=0;
 
 
-Opera::Opera(QString tit,bool s): titolo(tit), statoP(s)
+Opera::Opera(const QString& tit, bool s): titolo(tit), statoP(s)
 {
   //setta l'ID univoco per la nuova opera creata
     maxId++;

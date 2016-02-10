@@ -9,7 +9,7 @@ class Libro: public Opera{
 private:
     QString autore;
 public:
-    Libro(QString, QString, bool=0);
+    Libro(const QString& , const QString& , bool=0);
     QString GetAutore() const;
     virtual bool disponibile() const;
     virtual void Write_Opera(QXmlStreamWriter& xmlWriter) const;
