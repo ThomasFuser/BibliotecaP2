@@ -15,7 +15,6 @@ void c_add_rivista::add(info op){
     mainW->aggiorna_vista();
 }
 
-void c_add_rivista::chiudi_add_rivista(){
-    std::cout<<"distruttore del controller di rivista / distruttore del controller basta standard"<<std::endl;
-    delete view;
-}
+void c_add_rivista::chiudi_add_rivista(){ delete view; }
+
+
