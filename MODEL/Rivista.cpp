@@ -24,7 +24,7 @@ int Rivista::GetAnnoUscita() const{ return annoUscita; }
 
 //PRE=(this è una Rivista e annoUscita contiene l'anno di uscita di essa)
 bool Rivista::disponibile() const{
-        if(Presente()){
+        if(Opera::disponibile()){
             time_t t = time(0);             //oggetto che contenente anno auttuale
             tm* timePtr = localtime(&t);
             if(((timePtr->tm_year + 1900)-annoUscita)<=maxAnni) return true;

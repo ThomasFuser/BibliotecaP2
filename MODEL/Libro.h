@@ -11,7 +11,7 @@ private:
 public:
     Libro(const QString& , const QString& , bool=0);
     QString GetAutore() const;
-    virtual bool disponibile() const;
+    //virtual bool disponibile() const;
     virtual void Write_Opera(QXmlStreamWriter& xmlWriter) const;
     virtual bool ricerca_campi(const QString&) const;
     virtual info get_infoTot()const;

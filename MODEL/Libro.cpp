@@ -4,10 +4,10 @@ Libro::Libro(const QString& tit, const QString& al, bool stat): Opera(tit,stat),
 
 QString Libro::GetAutore() const{ return autore; }
 
-bool Libro::disponibile() const {
+/*bool Libro::disponibile() const {
     if(Presente()) return true;
     return false;
-}
+}*/
 
 void Libro::Write_Opera(QXmlStreamWriter& xmlWriter) const{
     xmlWriter.writeStartElement("opera");               //<opera>

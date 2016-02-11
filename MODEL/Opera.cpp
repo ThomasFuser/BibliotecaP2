@@ -33,3 +33,7 @@ bool Opera::ricerca_campi(const QString& text) const{
     if(ID==Get_Id()) return true;
     return false;
 }
+bool Opera::disponibile() const {
+    if(Presente()) return true;
+    return false;
+}
