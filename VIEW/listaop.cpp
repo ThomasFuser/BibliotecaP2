@@ -56,13 +56,13 @@ void listaOp::set_style(){
     table->setRowCount(0);
 
   //set dimensioni tabella
-    table->setMinimumWidth(600);
+    table->setMinimumWidth(700);
     table->setColumnWidth(0,50);
-    table->setColumnWidth(1,431);
+    table->setColumnWidth(1,505);
     table->setColumnWidth(2,100);
-    table->setMaximumWidth(600);
+    table->setMaximumWidth(700);
     table->setMinimumHeight(300);
-    table->setMaximumHeight(300);
+    table->setMaximumHeight(600);
 
     //intestazione tabella
     QStringList tabHeader;
