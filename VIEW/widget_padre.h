@@ -16,11 +16,12 @@ public:
     virtual ~Widget_Padre();
 
     DataBase* get_model() const;                //ritorna un puntatore al database
-    virtual void set_style() =0;                //imposta lo stile nelle view
+    virtual void set_style();                   //imposta lo stile nelle view
     virtual void aggiorna_vista() =0;           //aggionrnamento del contenuto di ogni vista
     virtual void costruisci_contenuto() =0;     //costruisce il contenuto delle view
-    void centra_finestra();                     //permette di centrare la finestra al momento della sua creazione
+
 private:
+    void centra_finestra();                     //permette di centrare la finestra al momento della sua creazione
     DataBase* model;
 };
 

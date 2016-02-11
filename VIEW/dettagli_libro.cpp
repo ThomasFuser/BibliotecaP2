@@ -13,7 +13,6 @@ Dettagli_Libro::Dettagli_Libro(int Id, DataBase* db) : Dettagli_opera(Id,db)
     get_grid()->addWidget(autore,1,1);
 
     setLayout(get_grid());
-    centra_finestra();
     disabilita_modifica();
     set_style();
     costruisci_contenuto();

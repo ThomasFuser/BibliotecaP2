@@ -30,6 +30,7 @@ Dettagli_opera::Dettagli_opera(int ID, DataBase* db) : id(ID) , Widget_Padre(db)
 }
 
 void Dettagli_opera::set_style(){
+    Widget_Padre::set_style();
     resize(300,250);
     paletteLine=new QPalette();
     paletteLine->setColor(QPalette::Text,"#4c4c4c");

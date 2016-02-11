@@ -23,7 +23,6 @@ mainWindow::mainWindow(DataBase* db) : Widget_Padre(db) {
     Prlayout=new QVBoxLayout();
     bottoni=new QVBoxLayout();
 
-    centra_finestra();
     costruisci_contenuto();   
     creaLayout();
     set_style();
@@ -39,6 +38,7 @@ mainWindow::mainWindow(DataBase* db) : Widget_Padre(db) {
 }
 
 void mainWindow::set_style(){
+    Widget_Padre::set_style();
     barra_cerca->setPlaceholderText("Ricerca per: Titolo, Autore, Anno di uscita, ID");
     barra_cerca->setToolTip("Eliminare il contenuto della barra per tornare all'elenco completo delle opere");
     tab->setToolTip("Doppio click per visualizzare i dettagli dell'opera");

@@ -50,7 +50,7 @@ void listaOp::aggiorna_vista(){
 }
 
 void listaOp::set_style(){
-
+    Widget_Padre::set_style();
   //set numero righe e colonne della tabella
     table->setColumnCount(3);
     table->setRowCount(0);

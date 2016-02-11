@@ -13,7 +13,6 @@ Dettagli_Rivista::Dettagli_Rivista(int Id, DataBase* db) : Dettagli_opera(Id,db)
     get_grid()->addWidget(anno,1,1);
 
     setLayout(get_grid());
-    centra_finestra();
     disabilita_modifica();
     costruisci_contenuto();
     set_style();

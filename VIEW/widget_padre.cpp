@@ -22,4 +22,6 @@ void Widget_Padre::centra_finestra(){
        move(x,y);
 }
 
+void Widget_Padre::set_style(){ centra_finestra(); }
+
 
